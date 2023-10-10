@@ -5,7 +5,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-@RestController //controller임을 알림 //JSON형태의 객체 데이터 반환
+@RestController
 public class HelloController {
 
     @GetMapping("/hello") //해당 주소로 요청이 오면
