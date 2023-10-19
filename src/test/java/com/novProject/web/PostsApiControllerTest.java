@@ -45,6 +45,7 @@ public class PostsApiControllerTest {
         //given
         String title = "title";
         String content = "content";
+
         PostsSaveRequestDto requestDto = PostsSaveRequestDto.builder()
                 .title(title)
                 .content(content)
@@ -54,6 +55,7 @@ public class PostsApiControllerTest {
 
         //when
         ResponseEntity<Long> responseEntity = restTemplate.postForEntity(url, requestDto, Long.class);
+
         //then
         assertThat(responseEntity.getStatusCode()).isEqualTo(HttpStatus.OK);
         assertThat(responseEntity.getBody()).isGreaterThan(0L);

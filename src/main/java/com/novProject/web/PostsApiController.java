@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 public class PostsApiController {
 
-    
+
     private final PostsService postsService;
 
     @PostMapping("/api/v1/posts") //등록
@@ -31,4 +31,9 @@ public class PostsApiController {
         return postsService.findById(id);
     }
 
+    @DeleteMapping("/api/v1/posts/{id}") //삭제
+    public Long delete(@PathVariable Long id) {
+        postsService.delete(id);
+        return id;
+    }
 }
