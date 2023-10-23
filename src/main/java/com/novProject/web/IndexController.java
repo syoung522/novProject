@@ -1,5 +1,7 @@
 package com.novProject.web;
 
+import com.novProject.config.auth.LoginUser;
+import com.novProject.config.auth.dto.SessionUser;
 import com.novProject.service.posts.PostsService;
 import com.novProject.web.dto.PostsResponseDto;
 import lombok.RequiredArgsConstructor;
@@ -9,15 +11,20 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 
+import javax.servlet.http.HttpSession;
+
 @RequiredArgsConstructor
 @Controller
 public class IndexController {
     @Autowired
-    PostsService postsService;
-
+    private final PostsService postsService;
+    private final HttpSession httpSession;
     @GetMapping("/")
-    public String index(Model model) { //model객체를 파라미터로 받는 메소드
+    public String index(Model model, @LoginUser SessionUser user) { //model객체를 파라미터로 받는 메소드
         model.addAttribute("posts", postsService.findAllDesc());
+        if(user != null){
+            model.addAttribute("userName", user.getName());
+        }
         return "index";
     }
 
@@ -32,4 +39,5 @@ public class IndexController {
         model.addAttribute("post", dto);
         return "posts-update";
     }
+
 }
