@@ -25,13 +25,17 @@ repositories {
 
 dependencies {
     implementation('org.springframework.boot:spring-boot-starter-web')
+    implementation('org.springframework.boot:spring-boot-starter-mustache')
+
     implementation('org.projectlombok:lombok')
+
     implementation('org.springframework.boot:spring-boot-starter-data-jpa')
     implementation('com.h2database:h2')
-    implementation('org.springframework.boot:spring-boot-starter-mustache')
-    implementation('org.springframework.boot:spring-boot-starter-oauth2-client')
-    implementation('org.springframework.session:spring-session-jdbc')
     implementation('org.mariadb.jdbc:mariadb-java-client')
+
+    implementation('org.springframework.boot:spring-boot-starter-oauth2-client') //스프링 시큐리티 (권한 관련)
+    implementation('org.springframework.session:spring-session-jdbc')
+
     testImplementation('org.springframework.boot:spring-boot-starter-test')
 }
 
