@@ -7,10 +7,9 @@
     <!-- 로그인 -->
     <div class="row">
         <div class="col-md-6">
-            <a href="/posts/save" role="button" class="btn btn-primary">글 등록</a>
             {{#userName}}
-            Logged in as: <span id="user">{{userName}}</span>
-            <a href="/logout" class="btn btn-info active" role="button">Logout</a>
+                <span id="user">{{userName}}님 안녕하세요.</span>
+                <a href="/logout" class="btn btn-info active" role="button">Logout</a>
             {{/userName}}
             {{^userName}}
                 <a href="/oauth2/authorization/google"
@@ -27,6 +26,12 @@
         </ul>
     </aside>
     <!-- 글 목록 -->
+    {{#userName}}
+        <a href="/posts/save" role="button" class="btn btn-primary">글 등록</a>
+    {{/userName}}
+    {{^userName}}
+        <a href="/posts/save" role="button" class="btn btn-primary" onClick="alert('please login');">글 등록</a>
+    {{/userName}}
     <table class="table table-horizontal table-bordered">
         <thead class="thead-strong">
         <tr>
