@@ -26,12 +26,14 @@ public class Posts extends BaseTimeEntity { //Posts라는 테이블이 id, title
     private String content;
 
     private String author;
+    private String category;
 
     @Builder //lombok
-    public Posts(String title, String content, String author){
+    public Posts(String title, String content, String author, String category){
         this.title = title;
         this.content = content;
         this.author = author;
+        this.category = category;
     }
 
     //게시글을 수정하기 위한 메소드. 제목과 내용을 인자로 받아 업데이트함

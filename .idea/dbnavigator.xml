@@ -65,7 +65,9 @@ CREATE TABLE SPRING_SESSION_ATTRIBUTES (
     <last-used-providers />
   </component>
   <component name="DBNavigator.Project.DatabaseFileManager">
-    <open-files />
+    <open-files>
+      <object connection-id="8edb12e1-5396-4825-84ea-56daf491a01c" object-ref="consoles/soyoung2" />
+    </open-files>
   </component>
   <component name="DBNavigator.Project.ExecutionManager">
     <retain-sticky-names value="false" />

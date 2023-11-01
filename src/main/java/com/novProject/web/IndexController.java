@@ -1,3 +1,5 @@
+/*머스테치에 URL을 매핑해주는 컨트롤러*/
+
 package com.novProject.web;
 
 import com.novProject.config.auth.LoginUser;
@@ -29,7 +31,10 @@ public class IndexController {
     }
 
     @GetMapping("/posts/save")
-    public String postsSave(){
+    public String postsSave(Model model, @LoginUser SessionUser user){
+        if(user != null){
+            model.addAttribute("userName", user.getName());
+        }
         return "posts-save";
     }
 

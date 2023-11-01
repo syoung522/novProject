@@ -12,6 +12,7 @@ public class PostsListResponseDto {
 
     //private LocalDateTime modifiedDate;
     private LocalDateTime createdDate;
+    private String category;
 
     public PostsListResponseDto(Posts entity) {
         this.id = entity.getId();
@@ -19,5 +20,6 @@ public class PostsListResponseDto {
         this.author = entity.getAuthor();
         //this.modifiedDate = entity.getModifiedDate();
         this.createdDate = entity.getCreatedDate();
+        this.category = entity.getCategory();
     }
 }

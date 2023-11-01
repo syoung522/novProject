@@ -1,4 +1,7 @@
-// Web Layer, 브라우저 요청 응답
+/*
+* Web Layer, 브라우저의 요청, 응답 처리
+* Create(등록), Read(조회), Update(수정), Delete(삭제)
+*/
 
 package com.novProject.web;
 
@@ -13,9 +16,9 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 public class PostsApiController {
 
-
     private final PostsService postsService;
 
+    //js의 url 요청을 받아 오는 곳
     @PostMapping("/api/v1/posts") //등록
     public Long save(@RequestBody PostsSaveRequestDto requestDto){ 
         return postsService.save(requestDto); 

@@ -30,12 +30,13 @@
         <a href="/posts/save" role="button" class="btn btn-primary">글 등록</a>
     {{/userName}}
     {{^userName}}
-        <a href="/posts/save" role="button" class="btn btn-primary" onClick="alert('please login');">글 등록</a>
+        <a href="/posts/save" role="button" class="btn btn-primary" onClick="alert('로그인이 필요해요.');">글 등록</a>
     {{/userName}}
     <table class="table table-horizontal table-bordered">
         <thead class="thead-strong">
         <tr>
-            <th>게시글번호</th>
+            <th>글 번호</th>
+            <th>카테고리</th>
             <th>제목</th>
             <th>작성자</th>
             <th>작성일</th>
@@ -45,6 +46,7 @@
         {{#posts}}
             <tr>
                 <td>{{id}}</td>
+                <td>{{category}}</td>
                 <td>{{title}}</td>
                 <td>{{author}}</td>
                 <td>{{createdDate}}</td>
