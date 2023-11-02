@@ -6,6 +6,7 @@ import com.novProject.config.auth.LoginUser;
 import com.novProject.config.auth.dto.SessionUser;
 import com.novProject.service.posts.PostsService;
 import com.novProject.web.dto.PostsResponseDto;
+import com.novProject.web.dto.PostsViewDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -45,4 +46,10 @@ public class IndexController {
         return "posts-update";
     }
 
+    @GetMapping("/posts/view/{id}")
+    public String postsView(@PathVariable Long id, Model model) {
+        PostsViewDto dto = postsService.findPostById(id);
+        model.addAttribute("post", dto);
+        return "posts-view";
+    }
 }
