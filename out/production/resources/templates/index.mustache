@@ -55,6 +55,26 @@
         {{/posts}}
         </tbody>
     </table>
+
+    <nav aria-label="Page navigation example">
+        <ul class="pagination pagination-sm justify-content-center">
+            {{#hasPrev}}
+            <li class="page-item">
+                <a class="page-link" href="?page={{prev}}" aria-label="Next">
+                <span aria-hidden="true">&laquo;</span>
+                </a>
+            </li>
+            {{/hasPrev}}
+            {{#hasNext}}
+            <li class="page-item">
+                <a class="page-link" href="?page={{next}}" aria-label="Next">
+                    <span aria-hidden="true">&raquo;</span>
+                </a>
+            </li>
+            {{/hasNext}}
+
+        </ul>
+    </nav>
 </div>
 
 {{>layout/footer}}

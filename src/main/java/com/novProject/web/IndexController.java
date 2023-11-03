@@ -4,11 +4,16 @@ package com.novProject.web;
 
 import com.novProject.config.auth.LoginUser;
 import com.novProject.config.auth.dto.SessionUser;
+import com.novProject.domain.posts.Posts;
 import com.novProject.service.posts.PostsService;
 import com.novProject.web.dto.PostsResponseDto;
 import com.novProject.web.dto.PostsViewDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
+import org.springframework.data.web.PageableDefault;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -23,8 +28,17 @@ public class IndexController {
     private final PostsService postsService;
     private final HttpSession httpSession;
     @GetMapping("/")
-    public String index(Model model, @LoginUser SessionUser user) { //model객체를 파라미터로 받는 메소드
-        model.addAttribute("posts", postsService.findAllDesc());
+    public String index(Model model,
+                        @PageableDefault(page = 0, size = 2, sort = "id", direction = Sort.Direction.DESC) Pageable pageable,
+                        @LoginUser SessionUser user) {
+        Page<Posts> list = postsService.findAllDesc(pageable);
+        model.addAttribute("posts", list);
+        model.addAttribute("prev", pageable.previousOrFirst().getPageNumber()); //이전 페이지
+        model.addAttribute("next", pageable.next().getPageNumber()); //다음 페이지
+
+        model.addAttribute("hasNext", list.hasNext());
+        model.addAttribute("hasPrev", list.hasPrevious());
+
         if(user != null){
             model.addAttribute("userName", user.getName());
         }
