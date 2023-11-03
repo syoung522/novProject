@@ -2,6 +2,8 @@ package com.novProject.web.dto;
 
 import com.novProject.domain.posts.Posts;
 import lombok.Getter;
+
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 @Getter
@@ -11,7 +13,7 @@ public class PostsListResponseDto {
     private String author;
 
     //private LocalDateTime modifiedDate;
-    private LocalDateTime createdDate;
+    private LocalDate createdDate;
     private String category;
 
     public PostsListResponseDto(Posts entity) {

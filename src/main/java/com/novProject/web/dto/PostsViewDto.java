@@ -2,12 +2,14 @@ package com.novProject.web.dto;
 
 import com.novProject.domain.posts.Posts;
 import lombok.Getter;
+
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 @Getter
 public class PostsViewDto {
     private Long id;
     private String category;
-    private LocalDateTime createdDate;
+    private LocalDate createdDate;
     private String title;
     private String author;
     private String content;
