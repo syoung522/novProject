@@ -17,6 +17,13 @@
             {{/userName}}
         </div>
     </div>
+    <!-- 검색 -->
+    <form action="/posts/search" method="GET">
+        <div class="btn-group" role="group">
+            <input name="keyword" type="text" placeholder="검색어를 입력하세요.">
+            <button class="btn btn-secondary">검색하기</button>
+        </div>
+    </form>
     <!-- 카테고리 -->
     <aside>
         <h4>category</h4>
@@ -55,7 +62,7 @@
         {{/posts}}
         </tbody>
     </table>
-
+    <!-- 페이징 -->
     <nav aria-label="Page navigation example">
         <ul class="pagination pagination-sm justify-content-center">
             {{#hasPrev}}

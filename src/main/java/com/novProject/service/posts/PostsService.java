@@ -62,5 +62,9 @@ public class PostsService {
         postsRepository.delete(posts);
     }
 
+    @Transactional
+    public List<Posts> findByTitleContaining(String keyword){
+        return postsRepository.findByTitleContaining(keyword);
+    }
 
 }

@@ -20,6 +20,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 
 import javax.servlet.http.HttpSession;
+import java.util.List;
 
 @RequiredArgsConstructor
 @Controller
@@ -31,6 +32,7 @@ public class IndexController {
     public String index(Model model,
                         @PageableDefault(page = 0, size = 2, sort = "id", direction = Sort.Direction.DESC) Pageable pageable,
                         @LoginUser SessionUser user) {
+        //페이징
         Page<Posts> list = postsService.findAllDesc(pageable);
         model.addAttribute("posts", list);
         model.addAttribute("prev", pageable.previousOrFirst().getPageNumber()); //이전 페이지
@@ -39,10 +41,19 @@ public class IndexController {
         model.addAttribute("hasNext", list.hasNext());
         model.addAttribute("hasPrev", list.hasPrevious());
 
+        //로그인
         if(user != null){
             model.addAttribute("userName", user.getName());
         }
         return "index";
+    }
+
+    @GetMapping("/posts/search")
+    public String search(Model model, String keyword){
+        //검색
+        List<Posts> searchList = postsService.findByTitleContaining(keyword);
+        model.addAttribute("searchList", searchList);
+        return "posts-search";
     }
 
     @GetMapping("/posts/save")
