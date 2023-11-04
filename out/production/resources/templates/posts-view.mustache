@@ -1,0 +1,37 @@
+{{>layout/header}}
+
+<title>게시글 상세</title>
+
+<div class="col-md-12">
+    <div class="col-md-4">
+        <table class="table table-horizontal table-bordered">
+            <thead class="thead-strong">
+            <tr>
+                <th>글 번호</th>
+                <th>카테고리</th>
+                <th>등록일</th>
+                <th>제목</th>
+                <th>작성자</th>
+                <th>내용</th>
+            </tr>
+            </thead>
+            <tbody id="tbody">
+            {{#post}}
+                <tr>
+                    <td><input type="text" id="id" value="{{id}}" style="border:none" readonly></td>
+                    <td>{{category}}</td>
+                    <td>{{createdDate}}</td>
+                    <td>{{title}}</td>
+                    <td>{{author}}</td>
+                    <td>{{content}}</td>
+                </tr>
+            {{/post}}
+            </tbody>
+        </table>
+        <a href="/" role="button" class="btn btn-secondary">돌아가기</a>
+        <a href="/posts/update/{{id}}" role="button" class="btn btn-primary">수정</a>
+        <button type="button" class="btn btn-danger" id="btn-delete">삭제</button>
+    </div>
+</div>
+
+{{>layout/footer}}
