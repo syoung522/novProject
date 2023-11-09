@@ -13,6 +13,8 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
+
 @RequiredArgsConstructor
 @Service
 public class CommentService {
@@ -33,16 +35,19 @@ public class CommentService {
         requestDto.setPosts(posts);
 
         Comment comment = requestDto.toEntity();
-        commentRepository.save(comment);
 
-        return requestDto.getId();
+        return commentRepository.save(comment).getId();
 
     }
 
+    @Transactional
+    public CommentListResponseDto findById(Long id){
+        Comment entity = commentRepository.findById(id)
+                .orElseThrow(() -> new IllegalArgumentException("해당 댓글이 없습니다. id=" + id));
+        return new CommentListResponseDto(entity);
+    }
 //    @Transactional
-//    public CommentListResponseDto findById(Long id){
-//        Comment entity = commentRepository.findById(id)
-//                .orElseThrow(() -> new IllegalArgumentException("해당 댓글이 없습니다. id=" + id));
-//        return new CommentListResponseDto(entity);
+//    public List<Comment> findAllCommentByPostsId(Long id){
+//
 //    }
 }

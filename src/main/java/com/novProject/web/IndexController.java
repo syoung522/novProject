@@ -29,8 +29,7 @@ import java.util.List;
 public class IndexController {
     @Autowired
     private final PostsService postsService;
-    private final CommentService commentService;
-    private final HttpSession httpSession;
+
     @GetMapping("/")
     public String index(Model model,
                         @PageableDefault(page = 0, size = 2, sort = "id", direction = Sort.Direction.DESC) Pageable pageable,
@@ -75,7 +74,8 @@ public class IndexController {
     }
 
     @GetMapping("/posts/view/{id}")
-    public String postsView(@PathVariable Long id, Model model,
+    public String postsView(Model model,
+                            @PathVariable Long id,
                             @LoginUser SessionUser user) {
         //게시글
         PostsViewDto dto = postsService.findPostById(id);

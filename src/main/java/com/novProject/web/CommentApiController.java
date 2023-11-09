@@ -22,6 +22,7 @@ public class CommentApiController {
     public Long save(@PathVariable Long id,
                      @RequestBody CommentSaveRequestDto requestDto,
                      @LoginUser SessionUser user){
+        System.out.println(requestDto.getId());
         String userName = user.getName();
         return commentService.save(id, requestDto, userName);
     }

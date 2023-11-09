@@ -82,7 +82,7 @@ var main = {
 
     save_cmt : function () {
         var data = {
-            id: $('#posts_id').val(),
+            posts_id: $('#posts_id').val(),
             content: $('#cmt_content').val(),
         }
 
@@ -93,7 +93,7 @@ var main = {
         } else {
             $.ajax({
                 type: 'POST',
-                url: '/api/posts/' + data.id + '/comments',
+                url: '/api/posts/' + data.posts_id + '/comments',
                 dataType: 'JSON',
                 contentType: 'application/json; charset=utf-8',
                 data: JSON.stringify(data)
