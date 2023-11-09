@@ -6,7 +6,7 @@
     <div class="col-md-4">
         <form>
             <div class="form-group">
-                <label for="title">카테고리</label>
+                <label>카테고리</label>
                 <select class="form-control" id="category">
                     <option selected>카테고리를 선택해주세요.</option>
                     <option value="qna">질문</option>
@@ -17,7 +17,6 @@
             <div class="form-group">
                 <label for="title">작성자</label>
                 <input type="text" class="form-control" id="author" value="{{userName}}" readonly>
-            </div>
             </div>
             <div class="form-group">
                 <label for="title">제목</label>
@@ -30,8 +29,7 @@
         </form>
         <a href="/" role="button" class="btn btn-secondary">취소</a>
         <button type="button" class="btn btn-primary" id="btn-save">등록</button>
-
-</div>
+    </div>
 </div>
 
 {{>layout/footer}}

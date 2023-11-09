@@ -4,7 +4,6 @@ import com.novProject.domain.posts.Posts;
 import lombok.Getter;
 
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 
 @Getter
 public class PostsListResponseDto {

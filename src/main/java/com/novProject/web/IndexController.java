@@ -5,7 +5,9 @@ package com.novProject.web;
 import com.novProject.config.auth.LoginUser;
 import com.novProject.config.auth.dto.SessionUser;
 import com.novProject.domain.posts.Posts;
+import com.novProject.service.comment.CommentService;
 import com.novProject.service.posts.PostsService;
+import com.novProject.web.dto.CommentListResponseDto;
 import com.novProject.web.dto.PostsResponseDto;
 import com.novProject.web.dto.PostsViewDto;
 import lombok.RequiredArgsConstructor;
@@ -27,6 +29,7 @@ import java.util.List;
 public class IndexController {
     @Autowired
     private final PostsService postsService;
+    private final CommentService commentService;
     private final HttpSession httpSession;
     @GetMapping("/")
     public String index(Model model,
@@ -72,9 +75,24 @@ public class IndexController {
     }
 
     @GetMapping("/posts/view/{id}")
-    public String postsView(@PathVariable Long id, Model model) {
+    public String postsView(@PathVariable Long id, Model model,
+                            @LoginUser SessionUser user) {
+        //게시글
         PostsViewDto dto = postsService.findPostById(id);
         model.addAttribute("post", dto);
+
+        //댓글
+        PostsResponseDto dto_ = postsService.findById(id);
+        List<CommentListResponseDto> commentList = dto_.getComments();
+        if(commentList != null && !commentList.isEmpty()){
+            model.addAttribute("commentList", commentList);
+        }
+
+        //사용자
+        if(user != null){
+            model.addAttribute("userName", user.getName());
+        }
+
         return "posts-view";
     }
 }

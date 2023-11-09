@@ -1,0 +1,14 @@
+<div class="card my-4">
+    <ul class="list-group-flush">
+        {{#commentList}}
+            <li class="list-group-item">
+                    <span>
+                        <span style="font-size: small">{{author}}</span>
+                        <span style="font-size: xx-small">{{createdDate}}</span>&nbsp;
+                        <button class="badge bi bi-pencil-square">수정</button>
+                        <button class="badge bi bi-trash">삭제</button>
+                    </span><div>{{content}}</div>
+            </li>
+        {{/commentList}}
+    </ul>
+</div>

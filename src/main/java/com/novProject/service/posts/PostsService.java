@@ -2,6 +2,7 @@
 
 package com.novProject.service.posts;
 
+import com.novProject.domain.comment.CommentRepository;
 import com.novProject.domain.posts.Posts;
 import com.novProject.domain.posts.PostsRepository;
 import com.novProject.web.dto.*;
@@ -33,12 +34,13 @@ public class PostsService {
         posts.update(requestDto.getTitle(), requestDto.getContent());
         return id;
     }
+    @Transactional
     public PostsResponseDto findById(Long id){
         Posts entity = postsRepository.findById(id)
                 .orElseThrow(() -> new IllegalArgumentException("해당 게시글이 없습니다. id=" + id));
         return new PostsResponseDto(entity);
     }
-
+    @Transactional
     public PostsViewDto findPostById(Long id){
         Posts entity = postsRepository.findById(id)
                 .orElseThrow(() -> new IllegalArgumentException("해당 게시글이 없습니다. id=" + id));
@@ -66,5 +68,4 @@ public class PostsService {
     public List<Posts> findByTitleContaining(String keyword){
         return postsRepository.findByTitleContaining(keyword);
     }
-
 }

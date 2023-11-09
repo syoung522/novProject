@@ -4,7 +4,9 @@ import com.novProject.domain.posts.Posts;
 import lombok.Getter;
 
 import java.time.LocalDate;
-import java.time.LocalDateTime;
+import java.util.List;
+import java.util.stream.Collectors;
+
 @Getter
 public class PostsViewDto {
     private Long id;
@@ -13,6 +15,7 @@ public class PostsViewDto {
     private String title;
     private String author;
     private String content;
+    private List<CommentListResponseDto> comments;
 
     public PostsViewDto(Posts entity){
         this.id = entity.getId();
@@ -21,6 +24,7 @@ public class PostsViewDto {
         this.author = entity.getAuthor();
         this.category = entity.getCategory();
         this.createdDate = entity.getCreatedDate();
+        this.comments = entity.getComments().stream().map(CommentListResponseDto::new).collect(Collectors.toList());
     }
 
 }

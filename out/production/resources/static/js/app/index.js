@@ -14,6 +14,10 @@ var main = {
         $('#btn-delete').on('click', function () {
             _this.delete();
         });
+
+        $('#btn-save-cmt').on('click', function () {
+            _this.save_cmt();
+        });
     },
 
     save : function () {
@@ -34,7 +38,7 @@ var main = {
             alert('글이 등록되었습니다.');
             window.location.href = '/';
         }).fail(function (error) {
-            alert('요청 실패');
+            alert('권한이 없습니다.'+JSON.stringify(error));
         });
     },
 
@@ -54,9 +58,9 @@ var main = {
             data: JSON.stringify(data)
         }).done(function() {
             alert('글이 수정되었습니다.');
-            window.location.href = '/';
+            window.location.href = '/posts/view/'+id;
         }).fail(function (error) {
-            alert(JSON.stringify(error));
+            alert('요청을 처리할 수 없습니다.'+JSON.stringify(error));
         });
     },
 
@@ -72,8 +76,34 @@ var main = {
             alert('글이 삭제되었습니다.');
             window.location.href = '/';
         }).fail(function (error) {
-            alert(JSON.stringify(error));
+            alert('요청을 처리할 수 없습니다.'+JSON.stringify(error));
         });
+    },
+
+    save_cmt : function () {
+        var data = {
+            id: $('#posts_id').val(),
+            content: $('#cmt_content').val(),
+        }
+
+        //공백, 빈 문자열 체크
+        if(!data.content || data.content.trim() === "") {
+            alert("댓글을 입력해주세요.");
+            return false;
+        } else {
+            $.ajax({
+                type: 'POST',
+                url: '/api/posts/' + data.id + '/comments',
+                dataType: 'JSON',
+                contentType: 'application/json; charset=utf-8',
+                data: JSON.stringify(data)
+            }).done(function () {
+                alert('댓글이 등록되었습니다.');
+                window.location.reload();
+            }).fail(function (error) {
+                alert('요청을 처리할 수 없습니다.'+JSON.stringify(error));
+            });
+        }
     }
 };
 
