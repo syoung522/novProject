@@ -2,50 +2,49 @@
 
 <!-- 검색 -->
     <div class="input-group nav justify-content-center">
-    <form action="/posts/search" method="GET" role="search" >
-        <input name="keyword" type="text" placeholder="Search" autocomplete="off">
-        <span class="input-group-btn">
-            <button><i class="bi bi-search-heart"></i></button>
-        </span>
-    </form>
+        <form action="/posts/search" method="GET" role="search" >
+            <input class="box-shadow" name="keyword" type="text" placeholder="Search" autocomplete="off">
+            <span class="input-group-btn">
+                <button class="no-border"><i class="bi bi-search"></i></button>
+            </span>
+        </form>
     </div>
 <!-- 카테고리 -->
-<aside>
-    <h4>category</h4>
-    <ul>
-        <li>study</li>
-        <li>project</li>
-    </ul>
-</aside>
+<!--<aside>-->
+<!--    <h4>category</h4>-->
+<!--    <ul>-->
+<!--        <li>study</li>-->
+<!--        <li>project</li>-->
+<!--    </ul>-->
+<!--</aside>-->
+<!--글 쓰기 버튼-->
+<div id="write-posts" class="input-group nav justify-content-end" >
+    {{#userName}}
+        <a class="set-color" href="/posts/save">글 쓰기</a>
+    {{/userName}}
+    {{^userName}}
+        <a class="set-color" href="/posts/save" onClick="alert('로그인이 필요해요.');">글 쓰기</a>
+    {{/userName}}
+</div>
 <!-- 글 목록 -->
-{{#userName}}
-    <a href="/posts/save" role="button" class="btn btn-primary">글 쓰기</a>
-{{/userName}}
-{{^userName}}
-    <a href="/posts/save" role="button" class="btn btn-primary" onClick="alert('로그인이 필요해요.');">글 쓰기</a>
-{{/userName}}
-    <table class="table table table-hover">
-        <thead>
-            <tr>
-                <th>글 번호</th>
-                <th>카테고리</th>
-                <th>제목</th>
-                <th>작성자</th>
-                <th>작성일</th>
-            </tr>
-        </thead>
+<div class="table-responsive container">
+    {{#posts}}
+    <table class="table table-hover">
         <tbody>
-        {{#posts}}
-            <tr>
-                <td>{{id}}</td>
+            <tr onClick="location.href='/posts/view/{{id}}'" style="cursor:pointer;">
+                <td style="width:1px">{{id}}</td>
                 <td>{{category}}</td>
-                <td><a href="/posts/view/{{id}}">{{title}}</a></td>
-                <td>{{author}}</td>
+                <td><Strong>{{title}}</Strong><br>{{author}}</td>
                 <td>{{createdDate}}</td>
             </tr>
-        {{/posts}}
         </tbody>
     </table>
+    {{/posts}}
+    {{^posts}}
+        <br><br>
+        <p align="center" style="color:grey;">아직 작성된 글이 없습니다.</p>
+    {{/posts}}
+</div>
 
 <!-- 페이징 -->
 <nav aria-label="Page navigation example">

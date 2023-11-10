@@ -18,6 +18,7 @@ var main = {
         $('#btn-save-cmt').on('click', function () {
             _this.save_cmt();
         });
+
     },
 
     save : function () {
@@ -104,7 +105,8 @@ var main = {
                 alert('요청을 처리할 수 없습니다.'+JSON.stringify(error));
             });
         }
-    }
+    },
+
 };
 
 main.init();
