@@ -1,14 +1,15 @@
 {{>layout/header}}
 
 <!-- 검색 -->
-    <div class="input-group nav justify-content-center">
-        <form action="/posts/search" method="GET" role="search" >
-            <input class="box-shadow" name="keyword" type="text" placeholder="Search" autocomplete="off">
-            <span class="input-group-btn">
-                <button class="no-border"><i class="bi bi-search"></i></button>
-            </span>
-        </form>
-    </div>
+<div class="input-group nav justify-content-center">
+    <form action="/posts/search" method="GET" role="search" >
+        <input class="box-shadow" name="keyword" type="text" placeholder="Search" autocomplete="off">
+        <span class="input-group-btn">
+            <button class="no-border"><i class="bi bi-search"></i></button>
+        </span>
+    </form>
+</div>
+<br><br>
 <!-- 카테고리 -->
 <!--<aside>-->
 <!--    <h4>category</h4>-->
@@ -32,7 +33,7 @@
     <table class="table table-hover">
         <tbody>
             <tr onClick="location.href='/posts/view/{{id}}'" style="cursor:pointer;">
-                <td style="width:1px">{{id}}</td>
+                <td>{{id}}</td>
                 <td>{{category}}</td>
                 <td><Strong>{{title}}</Strong><br>{{author}}</td>
                 <td>{{createdDate}}</td>
@@ -43,6 +44,28 @@
     {{^posts}}
         <br><br>
         <p align="center" style="color:grey;">아직 작성된 글이 없습니다.</p>
+        <table class="posts-list table table-hover">
+            <tbody>
+            <tr>
+                <td>id</td>
+                <td>category</td>
+                <td><Strong>title</Strong><br>author</td>
+                <td>createdDate</td>
+            </tr>
+            <tr>
+                <td clas="id">idaaaaaaaa</td>
+                <td class="category">categoryaa</td>
+                <td class="title"><Strong>title</Strong><br>author</td>
+                <td class="createdDate">createdDateaaaaaaaaaaaaa</td>
+            </tr>
+            <tr>
+                <td clas="id">idaaaaffffffffffa</td>
+                <td class="category">cat</td>
+                <td class="title"><Strong>t</Strong><br>author</td>
+                <td class="createdDate">createdDfffffff</td>
+            </tr>
+            </tbody>
+        </table>
     {{/posts}}
 </div>
 

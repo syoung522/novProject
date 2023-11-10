@@ -33,7 +33,7 @@
     <table class="table table-hover">
         <tbody>
             <tr onClick="location.href='/posts/view/{{id}}'" style="cursor:pointer;">
-                <td style="width:1px">{{id}}</td>
+                <td>{{id}}</td>
                 <td>{{category}}</td>
                 <td><Strong>{{title}}</Strong><br>{{author}}</td>
                 <td>{{createdDate}}</td>
@@ -53,7 +53,7 @@
         {{#hasPrev}}
         <li class="page-item">
             <a class="page-link" href="?page={{prev}}" aria-label="Next">
-            <span aria-hidden="true">&laquo;</span>
+                <span aria-hidden="true">&laquo;</span>
             </a>
         </li>
         {{/hasPrev}}
