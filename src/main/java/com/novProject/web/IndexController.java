@@ -77,6 +77,11 @@ public class IndexController {
     public String postsView(Model model,
                             @PathVariable Long id,
                             @LoginUser SessionUser user) {
+        //사용자
+        if(user != null){
+            model.addAttribute("userName", user.getName());
+        }
+
         //게시글
         PostsViewDto dto = postsService.findPostById(id);
         model.addAttribute("post", dto);
@@ -87,12 +92,7 @@ public class IndexController {
         if(commentList != null && !commentList.isEmpty()){
             model.addAttribute("commentList", commentList);
         }
-
-        //사용자
-        if(user != null){
-            model.addAttribute("userName", user.getName());
-        }
-
+        
         return "posts-view";
     }
 }
