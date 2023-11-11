@@ -30,13 +30,13 @@
 <!-- 글 목록 -->
 <div class="table-responsive container">
     {{#posts}}
-    <table class="table table-hover">
+    <table class="table table-hover posts-list" style="table-layout:fixed">
         <tbody>
             <tr onClick="location.href='/posts/view/{{id}}'" style="cursor:pointer;">
-                <td>{{id}}</td>
-                <td>{{category}}</td>
-                <td><Strong>{{title}}</Strong><br>{{author}}</td>
-                <td>{{createdDate}}</td>
+                <td class="id">{{id}}</td>
+                <td class="category">{{category}}</td>
+                <td class="title"><Strong class="title">{{title}}</Strong><br><span class="author">{{author}}</span></td>
+                <td class="createdDate">{{createdDate}}</td>
             </tr>
         </tbody>
     </table>
@@ -44,28 +44,6 @@
     {{^posts}}
         <br><br>
         <p align="center" style="color:grey;">아직 작성된 글이 없습니다.</p>
-        <table class="posts-list table table-hover">
-            <tbody>
-            <tr>
-                <td>id</td>
-                <td>category</td>
-                <td><Strong>title</Strong><br>author</td>
-                <td>createdDate</td>
-            </tr>
-            <tr>
-                <td clas="id">idaaaaaaaa</td>
-                <td class="category">categoryaa</td>
-                <td class="title"><Strong>title</Strong><br>author</td>
-                <td class="createdDate">createdDateaaaaaaaaaaaaa</td>
-            </tr>
-            <tr>
-                <td clas="id">idaaaaffffffffffa</td>
-                <td class="category">cat</td>
-                <td class="title"><Strong>t</Strong><br>author</td>
-                <td class="createdDate">createdDfffffff</td>
-            </tr>
-            </tbody>
-        </table>
     {{/posts}}
 </div>
 
@@ -75,7 +53,7 @@
         {{#hasPrev}}
         <li class="page-item">
             <a class="page-link" href="?page={{prev}}" aria-label="Next">
-            <span aria-hidden="true">&laquo;</span>
+                <span aria-hidden="true">&laquo;</span>
             </a>
         </li>
         {{/hasPrev}}
