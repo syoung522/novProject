@@ -36,10 +36,10 @@ var main = {
             contentType:'application/json; charset=utf-8',
             data: JSON.stringify(data)
         }).done(function() {
-            alert('글이 등록되었습니다.');
+            alert('Saved successfully.');
             window.location.href = '/';
         }).fail(function (error) {
-            alert('권한이 없습니다.'+JSON.stringify(error));
+            alert('Access denied.'+JSON.stringify(error));
         });
     },
 
@@ -58,10 +58,10 @@ var main = {
             contentType:'application/json; charset=utf-8',
             data: JSON.stringify(data)
         }).done(function() {
-            alert('글이 수정되었습니다.');
+            alert('Update completed.');
             window.location.href = '/posts/view/'+id;
         }).fail(function (error) {
-            alert('요청을 처리할 수 없습니다.'+JSON.stringify(error));
+            alert('Failed to update your post.'+JSON.stringify(error));
         });
     },
 
@@ -74,10 +74,10 @@ var main = {
             dataType: 'json',
             contentType:'application/json; charset=utf-8',
         }).done(function() {
-            alert('글이 삭제되었습니다.');
+            alert('Deleted your post.');
             window.location.href = '/';
         }).fail(function (error) {
-            alert('요청을 처리할 수 없습니다.'+JSON.stringify(error));
+            alert('Failed to delete your post.'+JSON.stringify(error));
         });
     },
 
@@ -89,7 +89,7 @@ var main = {
 
         //공백, 빈 문자열 체크
         if(!data.content || data.content.trim() === "") {
-            alert("댓글을 입력해주세요.");
+            alert("Please enter a comment.");
             return false;
         } else {
             $.ajax({
@@ -99,10 +99,10 @@ var main = {
                 contentType: 'application/json; charset=utf-8',
                 data: JSON.stringify(data)
             }).done(function () {
-                alert('댓글이 등록되었습니다.');
+                alert('Saved your comment.');
                 window.location.reload();
             }).fail(function (error) {
-                alert('요청을 처리할 수 없습니다.'+JSON.stringify(error));
+                alert('Failed to save your comment.'+JSON.stringify(error));
             });
         }
     },
