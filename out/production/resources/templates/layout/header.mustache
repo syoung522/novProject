@@ -10,16 +10,18 @@
 
     <!-- 상단바 -->
     <nav class="navbar expand-lg bd-navbar sticky-top">
-        <h2>Study Matching Web</h2>
-        <!-- 로그인 -->
-        <div class="nav justify-content-end">
-            {{#userName}}
-                <p>{{userName}}, Welcome!　</p>
-                <a href="/logout"><i class="bi bi-box-arrow-right"></i> logout</a>
-            {{/userName}}
-            {{^userName}}
-                <a href="/oauth2/authorization/google"><i class="bi bi-google"></i> sign in</a>
-            {{/userName}}
+        <div class="container">
+            <h2>Study Matching Web</h2>
+            <!-- 로그인 -->
+            <div class="nav justify-content-end">
+                {{#userName}}
+                    <p>{{userName}}, Welcome!　</p>
+                    <a href="/logout"><i class="bi bi-box-arrow-right"></i> logout</a>
+                {{/userName}}
+                {{^userName}}
+                    <a href="/oauth2/authorization/google"><i class="bi bi-google"></i> sign in</a>
+                {{/userName}}
+            </div>
         </div>
     </nav>
     <br><br>
