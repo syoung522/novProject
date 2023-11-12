@@ -1,11 +1,14 @@
+<span style="margin:0;">Comment</span>
 {{#commentList}}
-<div class="card my-4">
+<div class="card my-4" style="border:none; outline:none;">
     <ul class="list-group-flush">
             <li class="list-group-item">
-                    <span>
-                        <span style="font-size: small">{{userName}}</span>
-                        <span style="font-size: xx-small">{{createdDate}}</span>&nbsp;
-                    </span><div>{{content}}</div>
+                <span>
+                    <span style="font-size: small; font-weight:bold;">{{userName}}</span>
+                    <span style="font-size: xx-small;">{{createdDate}}</span>&nbsp;
+                </span>
+                <br>
+                <div>{{content}}</div>
             </li>
     </ul>
 </div>
