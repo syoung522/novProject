@@ -3,6 +3,7 @@
 <!-- 게시글 상세 -->
 <div class="container">
     {{#post}}
+        <input type="hidden" id="id" value="{{id}}">
         <p style="font-size:small;">category/{{category}}</p>
         <p style="font-size:24px;">{{title}}</p>
 
@@ -18,6 +19,8 @@
         <hr>
         <p>{{content}}</p>
     {{/post}}
+    <br><br>
+    <hr>
 
     <!-- 댓글 -->
     {{>comment/list}}
