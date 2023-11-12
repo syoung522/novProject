@@ -3,13 +3,12 @@
 <!-- 게시글 상세 -->
 <div class="container">
     {{#post}}
-        <input type="hidden" id="id" value="{{id}}"> //delete 를 위해 id 저장
-        <p style="font-size:small;">category/{{category}}</p>
-        <p style="font-size:24px;">{{title}}</p>
+        <input type="hidden" id="id" value="{{id}}"> <!-- delete 를 위해 id 저장 -->
+        <p style="font-size:small;">category / {{category}}</p>
+        <p style="font-size:30px;">{{title}}</p>
 
-        <span style="font-size:small;">{{author}}</span>
-        <span>  </span>
-        <span style="font-size:small;">{{createdDate}}</span>
+        <span style="font-size:small; font-weight:bold;">{{author}}</span>
+        <span style="font-size:xx-small;">{{createdDate}}</span>
 
         <div class="float-right">
             <span><a href="/posts/update/{{id}}" class="set-color">Edit</a></span>
@@ -20,7 +19,6 @@
         <p>{{content}}</p>
     {{/post}}
     <br><br>
-    <hr>
 
     <!-- 댓글 -->
     {{>comment/list}}
