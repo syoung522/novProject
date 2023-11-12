@@ -1,42 +1,27 @@
 {{>layout/header}}
 
-<title>게시글 상세</title>
+<!-- 게시글 상세 -->
+<div class="container">
+    {{#post}}
+        <p style="font-size:small;">category/{{category}}</p>
+        <p style="font-size:24px;">{{title}}</p>
 
-<div class="col-md-12">
-    <!-- 게시글 상세 -->
-    <div class="col-md-4">
-        <table class="table table-striped">
-            <thead class="thead-strong">
-            <tr>
-                <th>글 번호</th>
-                <th>카테고리</th>
-                <th>등록일</th>
-                <th>제목</th>
-                <th>작성자</th>
-                <th>내용</th>
-            </tr>
-            </thead>
-            <tbody id="tbody">
-            {{#post}}
-                <tr>
-                    <td><input type="text" id="id" value="{{id}}" style="border:none" readonly></td>
-                    <td>{{category}}</td>
-                    <td>{{createdDate}}</td>
-                    <td>{{title}}</td>
-                    <td>{{author}}</td>
-                    <td>{{content}}</td>
-                </tr>
-            {{/post}}
-            </tbody>
-        </table>
-        <a href="/" role="button" class="btn btn-secondary">돌아가기</a>
-        <a href="/posts/update/{{id}}" role="button" class="btn btn-primary">수정</a>
-        <button type="button" class="btn btn-danger" id="btn-delete">삭제</button>
-    </div>
+        <span style="font-size:small;">{{author}}</span>
+        <span>  </span>
+        <span style="font-size:small;">{{createdDate}}</span>
+
+        <div class="float-right">
+            <span><a href="/posts/update/{{id}}" class="set-color">Edit</a></span>
+            <span><button type="button" id="btn-delete" class="set-color no-border">Delete</button></span>
+            <span><a href="/" class="set-color">Go Back</a></span>
+        </div>
+        <hr>
+        <p>{{content}}</p>
+    {{/post}}
+
     <!-- 댓글 -->
     {{>comment/list}}
     {{>comment/form}}
-    </div>
 </div>
 
 {{>layout/footer}}
