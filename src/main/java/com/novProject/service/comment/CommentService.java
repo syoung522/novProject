@@ -43,7 +43,9 @@ public class CommentService {
     @Transactional
     public void delete(Long id){
        Comment comment = commentRepository.findByPosts_id(id);
+       if(comment != null){ //댓글이 없어도 삭제되도록
         commentRepository.delete(comment);
+       }
     }
 
     @Transactional
