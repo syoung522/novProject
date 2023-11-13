@@ -50,7 +50,8 @@ public class IndexController {
 
     @GetMapping("/posts/search")
     public String search(Model model,
-                         @RequestParam("keyword") String keyword,
+                         @RequestParam("keyword_1") String keyword_1,
+                         @RequestParam("keyword_2") String keyword_2,
                          @PageableDefault(page = 0, size = 5, sort = "id", direction = Sort.Direction.DESC) Pageable pageable,
                          @LoginUser SessionUser user){
         //로그인
@@ -59,7 +60,7 @@ public class IndexController {
         }
 
         //검색목록 + 페이징
-        Page<Posts> searchList = postsService.findByTitleContaining(keyword, pageable);
+        Page<Posts> searchList = postsService.findByCategoryAndTitle(keyword_1, keyword_2, pageable);
         model.addAttribute("searchList", searchList);
         model.addAttribute("prev", pageable.previousOrFirst().getPageNumber()); //이전 페이지
         model.addAttribute("next", pageable.next().getPageNumber()); //다음 페이지
@@ -67,7 +68,8 @@ public class IndexController {
         model.addAttribute("hasNext", searchList.hasNext());
         model.addAttribute("hasPrev", searchList.hasPrevious());
 
-        model.addAttribute("keyword", keyword);
+        model.addAttribute("keyword_1", keyword_1);
+        model.addAttribute("keyword_2", keyword_2);
 
         return "posts-search";
     }

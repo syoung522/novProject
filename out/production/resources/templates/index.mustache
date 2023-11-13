@@ -3,7 +3,13 @@
 <!-- 검색 -->
 <div class="input-group nav justify-content-center">
     <form action="/posts/search" method="GET" role="search" >
-        <input class="box-shadow" name="keyword" type="text" placeholder="Search" autocomplete="off">
+        <select name="keyword_1" class="box-shadow">
+            <option value="" disabled selected>Category</option>
+            <option value="study">study</option>
+            <option value="project">project</option>
+            <option value="etc">etc</option>
+        </select>
+        <input class="box-shadow" name="keyword_2" type="text" placeholder="Search" autocomplete="off">
         <span class="input-group-btn">
             <button class="no-border"><i class="bi bi-search"></i></button>
         </span>

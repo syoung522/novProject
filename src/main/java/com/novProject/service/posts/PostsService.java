@@ -66,7 +66,7 @@ public class PostsService {
     }
 
     @Transactional
-    public Page<Posts> findByTitleContaining(String keyword, Pageable pageable){
-        return postsRepository.findByTitleContaining(keyword, pageable);
+    public Page<Posts> findByCategoryAndTitle(String keyword_1, String keyword_2, Pageable pageable){
+        return postsRepository.findByCategoryAndTitle(keyword_1, keyword_2, pageable);
     }
 }
