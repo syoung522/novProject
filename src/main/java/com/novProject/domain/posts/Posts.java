@@ -44,8 +44,9 @@ public class Posts extends BaseTimeEntity {
     }
 
     //게시글을 수정하기 위한 메소드. 제목과 내용을 인자로 받아 업데이트함
-    public void update(String title, String content){
+    public void update(String title, String content, String category){
         this.title = title;
         this.content = content;
+        this.category = category;
     }
 }

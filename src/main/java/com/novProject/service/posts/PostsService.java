@@ -31,7 +31,7 @@ public class PostsService {
     public Long update(Long id, PostsUpdateRequestDto requestDto){ //수정 (Posts 엔티티에 도메인 로직 위임)
         Posts posts = postsRepository.findById(id)
                 .orElseThrow(() -> new IllegalArgumentException("해당 게시글이 없습니다. id="+ id));
-        posts.update(requestDto.getTitle(), requestDto.getContent());
+        posts.update(requestDto.getTitle(), requestDto.getContent(), requestDto.getCategory());
         return id;
     }
     @Transactional
@@ -40,6 +40,7 @@ public class PostsService {
                 .orElseThrow(() -> new IllegalArgumentException("해당 게시글이 없습니다. id=" + id));
         return new PostsResponseDto(entity);
     }
+
     @Transactional
     public PostsViewDto findPostById(Long id){
         Posts entity = postsRepository.findById(id)
