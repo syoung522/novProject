@@ -12,6 +12,11 @@ a.set-color:link { color: grey; font-weight: bold; }
 a.set-color:visited { color: grey; font-weight: bold; }
 a.set-color:hover { text-decoration: none; color: rgba(235, 152, 172, 1); filter: drop-shadow(0 0 2px rgba(243, 191, 203, 1)); font-weight: bold;}
 
+/* a 태그 디자인 - 로고 */
+a.set-color-logo:link { color: black; font-weight: bold; }
+a.set-color-logo:visited { color: black; font-weight: bold; }
+a.set-color-logo:hover { text-decoration: none; color: rgba(217, 232, 130, 0.94); filter: drop-shadow(0 0 2px rgba(231, 241, 177, 0.94)); font-weight: bold;}
+
 /* input 박스 디자인 */
 input.box-shadow { border: none; outline: none; box-shadow: 0 0 40px rgba(51, 51, 51, .1); }
 input.box-shadow: hover { border: none; outline: none; box-shadow: 0 0 40px rgba(243, 191, 203, 1); }

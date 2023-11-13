@@ -52,6 +52,7 @@ public class IndexController {
         //검색
         List<Posts> searchList = postsService.findByTitleContaining(keyword);
         model.addAttribute("searchList", searchList);
+        model.addAttribute("keyword", keyword);
         return "posts-search";
     }
 

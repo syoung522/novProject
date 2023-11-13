@@ -1,26 +1,32 @@
 {{>layout/header}}
 
-<table class="table table-horizontal table-bordered">
-    <thead class="thead-strong">
-    <tr>
-        <th>글 번호</th>
-        <th>카테고리</th>
-        <th>제목</th>
-        <th>작성자</th>
-        <th>작성일</th>
-    </tr>
-    </thead>
-    <tbody id="tbody">
-    {{#searchList}}
-        <tr>
-            <td>{{id}}</td>
-            <td>{{category}}</td>
-            <td><a href="/posts/view/{{id}}">{{title}}</a></td>
-            <td>{{author}}</td>
-            <td>{{createdDate}}</td>
+<!-- 검색 -->
+<div class="input-group nav justify-content-center">
+    <form action="/posts/search" method="GET" role="search" >
+        <input class="box-shadow" name="keyword" type="text" value="{{keyword}}" placeholder="Search" autocomplete="off">
+        <span class="input-group-btn">
+            <button class="no-border"><i class="bi bi-search"></i></button>
+        </span>
+    </form>
+</div>
+<br><br>
+
+<!-- 검색 결과 목록 -->
+{{#searchList}}
+    <table class="table table-hover posts-list" style="table-layout:fixed">
+        <tbody>
+        <tr onClick="location.href='/posts/view/{{id}}'" style="cursor:pointer;">
+            <td class="id">{{id}}</td>
+            <td class="category">{{category}}</td>
+            <td class="title"><Strong class="title">{{title}}</Strong><br><span class="author">{{author}}</span></td>
+            <td class="createdDate">{{createdDate}}</td>
         </tr>
-    {{/searchList}}
-    </tbody>
-</table>
+        </tbody>
+    </table>
+{{/searchList}}
+{{^searchList}}
+    <br><br>
+    <p align="center" style="color:grey;">There are no search results matching <span style="font-weight:bold;">'{{keyword}}'</span>.</p>
+{{/searchList}}
 
 {{>layout/footer}}
