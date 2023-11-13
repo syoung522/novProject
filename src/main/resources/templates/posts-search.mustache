@@ -11,8 +11,20 @@
 </div>
 <br><br>
 
+<!--글 쓰기 버튼-->
+<div id="write-posts" class="input-group nav justify-content-end" >
+    {{#userName}}
+        <a class="set-color" href="/posts/save">+ Add a post</a>
+    {{/userName}}
+    {{^userName}}
+        <a class="set-color" href="/posts/save" onClick="alert('Please sign in.');">+ Add a post</a>
+    {{/userName}}
+</div>
+
 <!-- 검색 결과 목록 -->
-{{#searchList}}
+<br>
+<div class="table-responsive container">
+    {{#searchList}}
     <table class="table table-hover posts-list" style="table-layout:fixed">
         <tbody>
         <tr onClick="location.href='/posts/view/{{id}}'" style="cursor:pointer;">
@@ -23,10 +35,31 @@
         </tr>
         </tbody>
     </table>
-{{/searchList}}
-{{^searchList}}
-    <br><br>
-    <p align="center" style="color:grey;">There are no search results matching <span style="font-weight:bold;">'{{keyword}}'</span>.</p>
-{{/searchList}}
+    {{/searchList}}
+    {{^searchList}}
+        <br><br>
+        <p align="center" style="color:grey;">There are no search results matching <span style="font-weight:bold;">'{{keyword}}'</span>.</p>
+    {{/searchList}}
+</div>
+
+<!-- 페이징 -->
+<nav aria-label="Page navigation example">
+    <ul class="pagination pagination-sm justify-content-center">
+        {{#hasPrev}}
+            <li class="page-item">
+                <a class="page-link" href="?keyword={{keyword}}&page={{prev}}" aria-label="Next">
+                <span aria-hidden="true">&laquo;</span>
+                </a>
+            </li>
+        {{/hasPrev}}
+        {{#hasNext}}
+            <li class="page-item">
+                <a class="page-link" href="?keyword={{keyword}}&page={{next}}" aria-label="Next">
+                <span aria-hidden="true">&raquo;</span>
+                </a>
+            </li>
+        {{/hasNext}}
+    </ul>
+</nav>
 
 {{>layout/footer}}

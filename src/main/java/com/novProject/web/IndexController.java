@@ -18,6 +18,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
 
@@ -31,7 +32,7 @@ public class IndexController {
     public String index(Model model,
                         @PageableDefault(page = 0, size = 2, sort = "id", direction = Sort.Direction.DESC) Pageable pageable,
                         @LoginUser SessionUser user) {
-        //페이징
+        //게시글 목록 + 페이징
         Page<Posts> list = postsService.findAllDesc(pageable);
         model.addAttribute("posts", list);
         model.addAttribute("prev", pageable.previousOrFirst().getPageNumber()); //이전 페이지
@@ -48,16 +49,26 @@ public class IndexController {
     }
 
     @GetMapping("/posts/search")
-    public String search(Model model, String keyword, @LoginUser SessionUser user){
+    public String search(Model model,
+                         @RequestParam("keyword") String keyword,
+                         @PageableDefault(page = 0, size = 2, sort = "id", direction = Sort.Direction.DESC) Pageable pageable,
+                         @LoginUser SessionUser user){
         //로그인
         if(user != null){
             model.addAttribute("userName", user.getName());
         }
 
-        //검색
-        List<Posts> searchList = postsService.findByTitleContaining(keyword);
+        //검색목록 + 페이징
+        Page<Posts> searchList = postsService.findByTitleContaining(keyword, pageable);
         model.addAttribute("searchList", searchList);
+        model.addAttribute("prev", pageable.previousOrFirst().getPageNumber()); //이전 페이지
+        model.addAttribute("next", pageable.next().getPageNumber()); //다음 페이지
+
+        model.addAttribute("hasNext", searchList.hasNext());
+        model.addAttribute("hasPrev", searchList.hasPrevious());
+
         model.addAttribute("keyword", keyword);
+
         return "posts-search";
     }
 
@@ -76,7 +87,6 @@ public class IndexController {
         if(user != null){
             model.addAttribute("userName", user.getName());
         }
-
 
         PostsResponseDto dto = postsService.findById(id);
         model.addAttribute("post", dto);
