@@ -10,38 +10,44 @@ background: linear-gradient(to bottom,  rgba(255,255,255,1) 36%,rgba(255,255,255
 /* a 태그 디자인 */
 a.set-color:link { color: grey; font-weight: bold; }
 a.set-color:visited { color: grey; font-weight: bold; }
-a.set-color:hover { text-decoration: none; color: rgba(235, 152, 172, 1); filter: drop-shadow(0 0 2px rgba(243, 191, 203, 1)); font-weight: bold;}
+a.set-color:hover { text-decoration: none; color: rgba(233, 235, 153, 1); filter: drop-shadow(0 0 2px rgba(243, 235, 191, 1)); font-weight: bold; }
+/* a.set-color:hover { text-decoration: none; color: rgba(235, 152, 172, 1); filter: drop-shadow(0 0 2px rgba(243, 191, 203, 1)); font-weight: bold;} pink */
 
 /* a 태그 디자인 - 로고 */
 a.set-color-logo:link { color: black; font-weight: bold; }
 a.set-color-logo:visited { color: black; font-weight: bold; }
 a.set-color-logo:hover { text-decoration: none; color: rgba(217, 232, 130, 0.94); filter: drop-shadow(0 0 2px rgba(231, 241, 177, 0.94)); font-weight: bold;}
 
+/* a 태그 디자인 - 페이징 아이콘 */
+a.set-color-paging:link { color: black; font-weight: bold; }
+a.set-color-paging:visited { color: black; font-weight: bold; }
+a.set-color-paging:hover { text-decoration: none; color: rgba(233, 235, 153, 1); filter: drop-shadow(0 0 2px rgba(243, 235, 191, 1)); font-weight: bold; }
+
 /* input 박스 디자인 */
 input.box-shadow { border: none; outline: none; box-shadow: 0 0 40px rgba(51, 51, 51, .1); }
-input.box-shadow: hover { border: none; outline: none; box-shadow: 0 0 40px rgba(243, 191, 203, 1); }
-input.box-shadow:active { border: none; outline: none; box-shadow: 0 0 40px rgba(243, 191, 203, 1); }
-input.box-shadow:focus { border: none; outline: none;  box-shadow: 0 0 40px rgba(243, 191, 203, 1); }
+input.box-shadow: hover { border: none; outline: none; box-shadow: 0 0 40px rgba(243, 235, 191, 1); }
+input.box-shadow:active { border: none; outline: none; box-shadow: 0 0 40px rgba(243, 235, 191, 1); }
+input.box-shadow:focus { border: none; outline: none;  box-shadow: 0 0 40px rgba(243, 235, 191, 1); }
 
 /* textarea 박스 디자인 */
 textarea.box-shadow { border: none; outline: none; box-shadow: 0 0 40px rgba(51, 51, 51, .1); }
-textarea.box-shadow: hover { border: none; outline: none; box-shadow: 0 0 40px rgba(243, 191, 203, 1); }
-textarea.box-shadow:active { border: none; outline: none; box-shadow: 0 0 40px rgba(243, 191, 203, 1); }
-textarea.box-shadow:focus { border: none; outline: none;  box-shadow: 0 0 40px rgba(243, 191, 203, 1); }
+textarea.box-shadow: hover { border: none; outline: none; box-shadow: 0 0 40px rgba(243, 235, 191, 1); }
+textarea.box-shadow:active { border: none; outline: none; box-shadow: 0 0 40px rgba(243, 235, 191, 1); }
+textarea.box-shadow:focus { border: none; outline: none;  box-shadow: 0 0 40px rgba(243, 235, 191, 1); }
 textarea.box-size-height { height: 50vh; resize: none; }
 textarea.box-size-width { width: 50vh; resize: none; }
 
 /* select 박스 디자인 */
 select.box-shadow { border: none; outline: none; box-shadow: 0 0 40px rgba(51, 51, 51, .1); }
-select.box-shadow: hover { border: none; outline: none; box-shadow: 0 0 40px rgba(243, 191, 203, 1); }
-select.box-shadow:active { border: none; outline: none; box-shadow: 0 0 40px rgba(243, 191, 203, 1); }
-select.box-shadow:focus { border: none; outline: none;  box-shadow: 0 0 40px rgba(243, 191, 203, 1); }
+select.box-shadow: hover { border: none; outline: none; box-shadow: 0 0 40px rgba(243, 235, 191, 1); }
+select.box-shadow:active { border: none; outline: none; box-shadow: 0 0 40px rgba(243, 235, 191, 1); }
+select.box-shadow:focus { border: none; outline: none;  box-shadow: 0 0 40px rgba(243, 235, 191, 1); }
 
 /* button 디자인 */
 button.no-border { border: none; outline: none; background: none;}
 button.set-color { color: grey; font-weight: bold; }
-button.set-color:hover { color: rgba(235, 152, 172, 1); filter: drop-shadow(0 0 2px rgba(243, 191, 203, 1)); font-weight: bold; }
-button.set-color:focus { color: rgba(235, 152, 172, 1); filter: drop-shadow(0 0 2px rgba(243, 191, 203, 1)); font-weight: bold; }
+button.set-color:hover { color: rgba(217, 232, 130, 0.94); filter: drop-shadow(0 0 2px rgba(243, 235, 191, 1)); font-weight: bold; }
+button.set-color:focus { color: rgba(217, 232, 130, 0.94); filter: drop-shadow(0 0 2px rgba(243, 235, 191, 1)); font-weight: bold; }
 
 /* 메인화면 post-list 테이블 디자인 */
 table.posts-list td { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }

@@ -10,14 +10,7 @@
     </form>
 </div>
 <br><br>
-<!-- 카테고리 -->
-<!--<aside>-->
-<!--    <h4>category</h4>-->
-<!--    <ul>-->
-<!--        <li>study</li>-->
-<!--        <li>project</li>-->
-<!--    </ul>-->
-<!--</aside>-->
+
 <!--글 쓰기 버튼-->
 <div id="write-posts" class="input-group nav justify-content-end" >
     {{#userName}}
@@ -27,6 +20,7 @@
         <a class="set-color" href="/posts/save" onClick="alert('Please sign in.');">+ Add a post</a>
     {{/userName}}
 </div>
+
 <!-- 글 목록 -->
 <br>
 <div class="table-responsive container">
@@ -51,20 +45,35 @@
 <!-- 페이징 -->
 <nav aria-label="Page navigation example">
     <ul class="pagination pagination-sm justify-content-center">
-        {{#hasPrev}}
-        <li class="page-item">
-            <a class="page-link" href="?page={{prev}}" aria-label="Next">
-                <span aria-hidden="true">&laquo;</span>
-            </a>
-        </li>
-        {{/hasPrev}}
-        {{#hasNext}}
-        <li class="page-item">
-            <a class="page-link" href="?page={{next}}" aria-label="Next">
-                <span aria-hidden="true">&raquo;</span>
-            </a>
-        </li>
-        {{/hasNext}}
+        {{#hasPrev}}{{^hasNext}}
+            <li class="page-item">
+                <a class="set-color-paging" href="?page={{prev}}" aria-label="Next">
+                    <span aria-hidden="true"><i class="bi bi-caret-left-fill"></i></span>
+                </a>
+            </li>
+            <span style="font-size:small;"> page </span>
+        {{/hasNext}}{{/hasPrev}}
+        {{#hasNext}}{{#hasPrev}}
+            <li class="page-item">
+                <a class="set-color-paging" href="?page={{prev}}" aria-label="Next">
+                    <span aria-hidden="true"><i class="bi bi-caret-left-fill"></i></span>
+                </a>
+            </li>
+            <span style="font-size:small;">  page  </span>
+            <li class="page-item">
+                <a class="set-color-paging" href="?page={{next}}" aria-label="Next">
+                    <span aria-hidden="true"><i class="bi bi-caret-right-fill"></i></span>
+                </a>
+            </li>
+        {{/hasPrev}}{{/hasNext}}
+        {{#hasNext}}{{^hasPrev}}
+            <span style="font-size:small;"> page </span>
+            <li class="page-item">
+                <a class="set-color-paging" href="?page={{next}}" aria-label="Next">
+                    <span aria-hidden="true"><i class="bi bi-caret-right-fill"></i></span>
+                </a>
+            </li>
+        {{/hasPrev}}{{/hasNext}}
     </ul>
 </nav>
 
