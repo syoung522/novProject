@@ -30,7 +30,7 @@ public class IndexController {
 
     @GetMapping("/")
     public String index(Model model,
-                        @PageableDefault(page = 0, size = 2, sort = "id", direction = Sort.Direction.DESC) Pageable pageable,
+                        @PageableDefault(page = 0, size = 5, sort = "id", direction = Sort.Direction.DESC) Pageable pageable,
                         @LoginUser SessionUser user) {
         //게시글 목록 + 페이징
         Page<Posts> list = postsService.findAllDesc(pageable);
@@ -51,7 +51,7 @@ public class IndexController {
     @GetMapping("/posts/search")
     public String search(Model model,
                          @RequestParam("keyword") String keyword,
-                         @PageableDefault(page = 0, size = 2, sort = "id", direction = Sort.Direction.DESC) Pageable pageable,
+                         @PageableDefault(page = 0, size = 5, sort = "id", direction = Sort.Direction.DESC) Pageable pageable,
                          @LoginUser SessionUser user){
         //로그인
         if(user != null){
