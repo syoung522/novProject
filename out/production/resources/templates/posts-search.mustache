@@ -32,8 +32,12 @@
     {{/userName}}
 </div>
 
+{{^searchList}}
+    <hr>
+{{/searchList}}
+<br><br>
+
 <!-- 검색 결과 목록 -->
-<br>
 <div class="table-responsive container">
     {{#searchList}}
         <table class="table table-hover posts-list" style="table-layout:fixed">
@@ -48,7 +52,6 @@
         </table>
     {{/searchList}}
     {{^searchList}}
-        <br><br>
         <p align="center" style="color:grey;">There are no search results matching <span style="font-weight:bold;">'{{keyword_1}}'</span> & <span style="font-weight:bold;">'{{keyword_2}}'</span> .</p>
     {{/searchList}}
 </div>
@@ -124,5 +127,6 @@
         </ul>
     </nav>
 {{/keyword_1}}
-
+<br><br>
+<br><br>
 {{>layout/footer}}

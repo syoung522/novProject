@@ -52,7 +52,7 @@ public class IndexController {
     public String search(Model model,
                          @RequestParam("keyword_1") String keyword_1,
                          @RequestParam("keyword_2") String keyword_2,
-                         @PageableDefault(page = 0, size = 1, sort = "id", direction = Sort.Direction.DESC) Pageable pageable,
+                         @PageableDefault(page = 0, size = 5, sort = "id", direction = Sort.Direction.DESC) Pageable pageable,
                          @LoginUser SessionUser user){
         //로그인
         if(user != null){

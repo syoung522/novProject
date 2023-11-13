@@ -40,7 +40,7 @@ textarea.box-shadow: hover { border: none; outline: none; box-shadow: 0 0 40px r
 textarea.box-shadow:active { border: none; outline: none; box-shadow: 0 0 40px rgba(243, 235, 191, 1); }
 textarea.box-shadow:focus { border: none; outline: none;  box-shadow: 0 0 40px rgba(243, 235, 191, 1); }
 textarea.box-size-height { height: 50vh; resize: none; }
-textarea.box-size-width { width: 50vh; resize: none; }
+textarea.box-size-width { width: 50vw; resize: none; }
 
 /* select 박스 디자인 - 게시물 작성 */
 select.box-shadow { border: none; outline: none; box-shadow: 0 0 40px rgba(51, 51, 51, .1); }
