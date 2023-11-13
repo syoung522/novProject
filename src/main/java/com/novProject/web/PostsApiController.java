@@ -5,6 +5,7 @@
 
 package com.novProject.web;
 
+import com.novProject.service.comment.CommentService;
 import com.novProject.service.posts.PostsService;
 import com.novProject.web.dto.PostsResponseDto;
 import com.novProject.web.dto.PostsSaveRequestDto;
@@ -17,6 +18,7 @@ import org.springframework.web.bind.annotation.*;
 public class PostsApiController {
 
     private final PostsService postsService;
+    private final CommentService commentService;
 
     //js의 url 요청을 받아 오는 곳
     @PostMapping("/api/v1/posts") //등록
@@ -36,6 +38,7 @@ public class PostsApiController {
 
     @DeleteMapping("/api/v1/posts/{id}") //삭제
     public Long delete(@PathVariable Long id) {
+        commentService.delete(id);
         postsService.delete(id);
         return id;
     }

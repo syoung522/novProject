@@ -41,6 +41,12 @@ public class CommentService {
     }
 
     @Transactional
+    public void delete(Long id){
+       Comment comment = commentRepository.findByPosts_id(id);
+        commentRepository.delete(comment);
+    }
+
+    @Transactional
     public CommentListResponseDto findById(Long id){
         Comment entity = commentRepository.findById(id)
                 .orElseThrow(() -> new IllegalArgumentException("해당 댓글이 없습니다. id=" + id));
