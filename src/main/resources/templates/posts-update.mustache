@@ -15,10 +15,10 @@
             <div class="form-group">
                 <label>Category</label>
                 <select id="category" class="form-control box-shadow">
-                    <option value="" disabled selected>{{post.category}}</option>
-                    <option value="Study">study</option>
-                    <option value="Project">project</option>
-                    <option value="ETC">etc</option>
+                    <option value="{{post.category}}" disabled selected style="display:none;">{{post.category}}</option>
+                    <option value="study">study</option>
+                    <option value="project">project</option>
+                    <option value="etc">etc</option>
                 </select>
             </div>
             <div class="form-group">

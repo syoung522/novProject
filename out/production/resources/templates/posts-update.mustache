@@ -1,31 +1,33 @@
 {{>layout/header}}
 
-<h2>게시글 수정</h2>
-
-<div class="col-md-12">
-    <div class="col-md-4">
+    <div class="container">
+        <div class="float-right">
+            <a href="/" class="set-color">Go Back</a>
+            <button type="button" id="btn-update" class="set-color no-border">Save</button>
+        </div>
+        <br><hr>
         <form>
+            <input type="hidden" id="id" value="{{id}}">
             <div class="form-group">
-                <label for="title">글 번호</label>
-                <input type="text" class="form-control" id="id" value="{{post.id}}" readonly>
+                <label>Title</label>
+                <input type="text" id="title" value="{{post.title}}" class="form-control box-shadow">
             </div>
             <div class="form-group">
-                <label for="title">제목</label>
-                <input type="text" class="form-control" id="title" value="{{post.title}}">
+                <label>Category</label>
+                <select id="category" class="form-control box-shadow">
+                    <option value="{{post.category}}" disabled selected style="display:none;">{{post.category}}</option>
+                    <option value="study">study</option>
+                    <option value="project">project</option>
+                    <option value="etc">etc</option>
+                </select>
             </div>
             <div class="form-group">
-                <label for="author"> 작성자 </label>
-                <input type="text" class="form-control" id="author" value="{{post.author}}" readonly>
-            </div>
-            <div class="form-group">
-                <label for="content"> 내용 </label>
-                <textarea class="form-control" id="content">{{post.content}}</textarea>
+                <label>Content</label>
+                <textarea id="content" class="form-control box-shadow box-size-height">{{post.content}}</textarea>
             </div>
         </form>
-        <a href="/" role="button" class="btn btn-secondary">취소</a>
-        <button type="button" class="btn btn-primary" id="btn-update">수정 완료</button>
-        <button type="button" class="btn btn-danger" id="btn-delete">삭제</button>
+        <br><br>
+        <br><br>
     </div>
-</div>
 
 {{>layout/footer}}
