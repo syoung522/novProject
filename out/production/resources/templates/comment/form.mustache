@@ -1,19 +1,21 @@
-<h5 class="card-header">comment</h5>
-<div class="card-body">
-    <form action="#" method="post" autocomplete="off">
-        <input type="hidden" id="posts_id" value="{{post.id}}">
-        {{#userName}}
-            <div class="form-group">
-                <input type="text" class="form-control" value="{{userName}}" readonly>
-                <textarea id="cmt_content" rows="3" cols="90"
-                          class="form-control" placeholder="댓글을 입력해주세요."></textarea>
-            </div>
-            <div class="card-footer">
-                <button type="button" class="btn btn-outline-primary bi bi-pencil-square" id="btn-save-cmt">등록</button>
-            </div>
-        {{/userName}}
-        {{^userName}}
-            <div class="card-body" style="font-size: small"><a href="/oauth2/authorization/google">로그인</a>시 댓글을 작성할 수 있습니다.</div>
-        {{/userName}}
-    </form>
+<span style="margin:0;">New Comment</span>
+<br>
+<div class="card my-4">
+    <ul class="list-group-flush">
+        <li class="list-group-item">
+
+            <button type="button" id="btn-save-cmt" class="set-color no-border float-right">Submit</button>
+
+            <form action="#" method="post" autocomplete="off">
+                <input type="hidden" id="posts_id" value="{{post.id}}">
+                {{#userName}}
+                <div class="form-group">
+                    <input type="text" value="{{userName}}" style="font-size: small; font-weight:bold; border:none; outline:none; margin:0;" readonly>
+                    <br>
+                    <textarea id="cmt_content" class="box-size-width" style="border:none; outline:none;" placeholder="your message..."></textarea>
+                </div>
+                {{/userName}}
+            </form>
+        </li>
+    </ul>
 </div>
