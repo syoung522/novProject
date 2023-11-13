@@ -48,7 +48,12 @@ public class IndexController {
     }
 
     @GetMapping("/posts/search")
-    public String search(Model model, String keyword){
+    public String search(Model model, String keyword, @LoginUser SessionUser user){
+        //로그인
+        if(user != null){
+            model.addAttribute("userName", user.getName());
+        }
+
         //검색
         List<Posts> searchList = postsService.findByTitleContaining(keyword);
         model.addAttribute("searchList", searchList);
@@ -58,6 +63,7 @@ public class IndexController {
 
     @GetMapping("/posts/save")
     public String postsSave(Model model, @LoginUser SessionUser user){
+        //로그인
         if(user != null){
             model.addAttribute("userName", user.getName());
         }
@@ -65,7 +71,13 @@ public class IndexController {
     }
 
     @GetMapping("/posts/update/{id}")
-    public String postsUpdate(@PathVariable Long id, Model model) {
+    public String postsUpdate(@PathVariable Long id, Model model, @LoginUser SessionUser user) {
+        //로그인
+        if(user != null){
+            model.addAttribute("userName", user.getName());
+        }
+
+
         PostsResponseDto dto = postsService.findById(id);
         model.addAttribute("post", dto);
         model.addAttribute("id", id);
