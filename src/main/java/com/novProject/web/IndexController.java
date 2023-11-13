@@ -5,12 +5,9 @@ package com.novProject.web;
 import com.novProject.config.auth.LoginUser;
 import com.novProject.config.auth.dto.SessionUser;
 import com.novProject.domain.posts.Posts;
-import com.novProject.service.comment.CommentService;
 import com.novProject.service.posts.PostsService;
 import com.novProject.web.dto.CommentListResponseDto;
 import com.novProject.web.dto.PostsResponseDto;
-import com.novProject.web.dto.PostsUpdateRequestDto;
-import com.novProject.web.dto.PostsViewDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -21,9 +18,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
 
-import javax.servlet.http.HttpSession;
 import java.util.List;
 
 @RequiredArgsConstructor
@@ -86,7 +81,7 @@ public class IndexController {
         }
 
         //게시글
-        PostsViewDto dto = postsService.findPostById(id);
+        PostsResponseDto dto = postsService.findById(id);
         model.addAttribute("post", dto);
 
         //댓글
