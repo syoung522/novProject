@@ -1,15 +1,20 @@
 {{>layout/header}}
 
 <!-- 검색 -->
+<div class="d-flex justify-content-center">
+    <h5>Did you find a group you like? Try contacting! <i class="bi bi-chat-square-heart"></i></h5>
+</div>
+<br>
 <div class="input-group nav justify-content-center">
     <form action="/posts/search" method="GET" role="search" >
-        <select name="keyword_1" class="box-shadow">
-            <option value="" disabled selected>Category</option>
+        <select name="keyword_1" class="box-search">
+            <option value="{{keyword_1}}" selected style="display:none;">{{keyword_1}}</option>
+            <option value="ALL">ALL</option>
             <option value="study">study</option>
             <option value="project">project</option>
             <option value="etc">etc</option>
         </select>
-        <input class="box-shadow" name="keyword_2" type="text" placeholder="Search" autocomplete="off">
+        <input class="box-search" name="keyword_2" type="text" value={{keyword_2}} placeholder="Search" autocomplete="off">
         <span class="input-group-btn">
             <button class="no-border"><i class="bi bi-search"></i></button>
         </span>
@@ -49,38 +54,75 @@
 </div>
 
 <!-- 페이징 -->
-<nav aria-label="Page navigation example">
-    <ul class="pagination pagination-sm justify-content-center">
-        {{#hasPrev}}{{^hasNext}}
-            <li class="page-item">
-                <a class="set-color-paging" href="?keyword_1={{keyword_1}}&keyword_2{{keyword_2}}&page={{prev}}" aria-label="Next">
-                <span aria-hidden="true"><i class="bi bi-caret-left-fill"></i></span>
-                </a>
-            </li>
-            <span style="font-size:small;"> page </span>
-        {{/hasNext}}{{/hasPrev}}
-        {{#hasNext}}{{#hasPrev}}
-            <li class="page-item">
-                <a class="set-color-paging" href="?keyword_1={{keyword_1}}&keyword_2={{keyword_2}}&page={{prev}}" aria-label="Next">
-                <span aria-hidden="true"><i class="bi bi-caret-left-fill"></i></span>
-                </a>
-            </li>
-            <span style="font-size:small;">  page  </span>
-            <li class="page-item">
-                <a class="set-color-paging" href="?keyword_1={{keyword_1}}&keyword_2={{keyword_2}}&page={{next}}" aria-label="Next">
-                <span aria-hidden="true"><i class="bi bi-caret-right-fill"></i></span>
-                </a>
-            </li>
-        {{/hasPrev}}{{/hasNext}}
-        {{#hasNext}}{{^hasPrev}}
-            <span style="font-size:small;"> page </span>
-            <li class="page-item">
-                <a class="set-color-paging" href="?keyword_1={{keyword_1}}&keyword_2={{keyword_2}}&page={{next}}" aria-label="Next">
-                <span aria-hidden="true"><i class="bi bi-caret-right-fill"></i></span>
-                </a>
-            </li>
-        {{/hasPrev}}{{/hasNext}}
-    </ul>
-</nav>
+{{#keyword_1}}
+    <nav aria-label="Page navigation example">
+        <ul class="pagination pagination-sm justify-content-center">
+            {{#hasPrev}}{{^hasNext}}
+                <li class="page-item">
+                    <a class="set-color-paging" href="?keyword_1={{keyword_1}}&keyword_2={{keyword_2}}&page={{prev}}" aria-label="Next">
+                    <span aria-hidden="true"><i class="bi bi-caret-left-fill"></i></span>
+                    </a>
+                </li>
+                <span style="font-size:small;"> page </span>
+            {{/hasNext}}{{/hasPrev}}
+            {{#hasNext}}{{#hasPrev}}
+                <li class="page-item">
+                    <a class="set-color-paging" href="?keyword_1={{keyword_1}}&keyword_2={{keyword_2}}&page={{prev}}" aria-label="Next">
+                    <span aria-hidden="true"><i class="bi bi-caret-left-fill"></i></span>
+                    </a>
+                </li>
+                <span style="font-size:small;">  page  </span>
+                <li class="page-item">
+                    <a class="set-color-paging" href="?keyword_1={{keyword_1}}&keyword_2={{keyword_2}}&page={{next}}" aria-label="Next">
+                    <span aria-hidden="true"><i class="bi bi-caret-right-fill"></i></span>
+                    </a>
+                </li>
+            {{/hasPrev}}{{/hasNext}}
+            {{#hasNext}}{{^hasPrev}}
+                <span style="font-size:small;"> page </span>
+                <li class="page-item">
+                    <a class="set-color-paging" href="?keyword_1={{keyword_1}}&keyword_2={{keyword_2}}&page={{next}}" aria-label="Next">
+                    <span aria-hidden="true"><i class="bi bi-caret-right-fill"></i></span>
+                    </a>
+                </li>
+            {{/hasPrev}}{{/hasNext}}
+        </ul>
+    </nav>
+{{/keyword_1}}
+{{^keyword_1}}
+    <nav aria-label="Page navigation example">
+        <ul class="pagination pagination-sm justify-content-center">
+            {{#hasPrev}}{{^hasNext}}
+                <li class="page-item">
+                    <a class="set-color-paging" href="?keyword_2={{keyword_2}}&page={{prev}}" aria-label="Next">
+                    <span aria-hidden="true"><i class="bi bi-caret-left-fill"></i></span>
+                    </a>
+                </li>
+                <span style="font-size:small;"> page </span>
+            {{/hasNext}}{{/hasPrev}}
+            {{#hasNext}}{{#hasPrev}}
+                <li class="page-item">
+                    <a class="set-color-paging" href="?keyword_2={{keyword_2}}&page={{prev}}" aria-label="Next">
+                    <span aria-hidden="true"><i class="bi bi-caret-left-fill"></i></span>
+                    </a>
+                </li>
+                <span style="font-size:small;">  page  </span>
+                <li class="page-item">
+                    <a class="set-color-paging" href="?keyword_2={{keyword_2}}&page={{next}}" aria-label="Next">
+                    <span aria-hidden="true"><i class="bi bi-caret-right-fill"></i></span>
+                    </a>
+                </li>
+            {{/hasPrev}}{{/hasNext}}
+            {{#hasNext}}{{^hasPrev}}
+                <span style="font-size:small;"> page </span>
+                <li class="page-item">
+                    <a class="set-color-paging" href="?keyword_2={{keyword_2}}&page={{next}}" aria-label="Next">
+                    <span aria-hidden="true"><i class="bi bi-caret-right-fill"></i></span>
+                    </a>
+                </li>
+            {{/hasPrev}}{{/hasNext}}
+        </ul>
+    </nav>
+{{/keyword_1}}
 
 {{>layout/footer}}

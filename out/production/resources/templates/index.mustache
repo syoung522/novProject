@@ -1,15 +1,20 @@
 {{>layout/header}}
 
 <!-- 검색 -->
+<div class="d-flex justify-content-center">
+    <h5><i class="bi bi-people-fill"></i> Find your group!</h5>
+</div>
+<br>
 <div class="input-group nav justify-content-center">
-    <form action="/posts/search" method="GET" role="search" >
-        <select name="keyword_1" class="box-shadow">
-            <option value="" disabled selected>Category</option>
+    <form action="/posts/search" method="GET" role="search">
+        <select name="keyword_1" class="box-search">
+            <option value="ALL" selected style="display:none; font-color:grey;">Category</option>
+            <option value="ALL">ALL</option>
             <option value="study">study</option>
             <option value="project">project</option>
             <option value="etc">etc</option>
         </select>
-        <input class="box-shadow" name="keyword_2" type="text" placeholder="Search" autocomplete="off">
+        <input class="box-search" name="keyword_2" type="text" placeholder="Search" autocomplete="off">
         <span class="input-group-btn">
             <button class="no-border"><i class="bi bi-search"></i></button>
         </span>
@@ -28,9 +33,9 @@
 </div>
 
 <!-- 글 목록 -->
-<br>
 <div class="table-responsive container">
     {{#posts}}
+    <br>
     <table class="table table-hover posts-list" style="table-layout:fixed">
         <tbody>
             <tr onClick="location.href='/posts/view/{{id}}'" style="cursor:pointer;">
@@ -43,6 +48,7 @@
     </table>
     {{/posts}}
     {{^posts}}
+        <hr>
         <br><br>
         <p align="center" style="color:grey;">no posts yet.</p>
     {{/posts}}

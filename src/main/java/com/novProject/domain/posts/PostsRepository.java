@@ -11,6 +11,6 @@ public interface PostsRepository extends JpaRepository<Posts, Long>{
     @Query("SELECT p FROM Posts p ORDER BY p.id DESC")
     Page<Posts> findAllDesc(Pageable pageable);
 
-//    Page<Posts> findByTitleContaining(String keyword, Pageable pageable); //검색 기능
-    Page<Posts> findByCategoryAndTitle(String Keyword_1, String Keyword_2, Pageable pageable); //다중 검색
+    Page<Posts> findByTitleContaining(String keyword_2, Pageable pageable); //검색 기능
+    Page<Posts> findByCategoryAndTitleContaining(String Keyword_1, String Keyword_2, Pageable pageable); //다중 검색
 }

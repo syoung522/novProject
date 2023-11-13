@@ -11,7 +11,6 @@ background: linear-gradient(to bottom,  rgba(255,255,255,1) 36%,rgba(255,255,255
 a.set-color:link { color: grey; font-weight: bold; }
 a.set-color:visited { color: grey; font-weight: bold; }
 a.set-color:hover { text-decoration: none; color: rgba(233, 235, 153, 1); filter: drop-shadow(0 0 2px rgba(243, 235, 191, 1)); font-weight: bold; }
-/* a.set-color:hover { text-decoration: none; color: rgba(235, 152, 172, 1); filter: drop-shadow(0 0 2px rgba(243, 191, 203, 1)); font-weight: bold;} pink */
 
 /* a 태그 디자인 - 로고 */
 a.set-color-logo:link { color: black; font-weight: bold; }
@@ -23,13 +22,19 @@ a.set-color-paging:link { color: black; font-weight: bold; }
 a.set-color-paging:visited { color: black; font-weight: bold; }
 a.set-color-paging:hover { text-decoration: none; color: rgba(233, 235, 153, 1); filter: drop-shadow(0 0 2px rgba(243, 235, 191, 1)); font-weight: bold; }
 
-/* input 박스 디자인 */
+/* input 박스 디자인 - 게시물 작성 */
 input.box-shadow { border: none; outline: none; box-shadow: 0 0 40px rgba(51, 51, 51, .1); }
 input.box-shadow: hover { border: none; outline: none; box-shadow: 0 0 40px rgba(243, 235, 191, 1); }
 input.box-shadow:active { border: none; outline: none; box-shadow: 0 0 40px rgba(243, 235, 191, 1); }
 input.box-shadow:focus { border: none; outline: none;  box-shadow: 0 0 40px rgba(243, 235, 191, 1); }
 
-/* textarea 박스 디자인 */
+/* input 박스 디자인 - 검색 */
+input.box-search { border: none; outline: none; background: none; box-shadow: 0 0 40px rgba(51, 51, 51, .1); }
+input.box-search: hover { border: none; outline: none; background: none; box-shadow: 0 0 40px rgba(243, 235, 191, 1); }
+input.box-search:active { border: none; outline: none; background: none; box-shadow: 0 0 40px rgba(243, 235, 191, 1); }
+input.box-search:focus { border: none; outline: none;  background: none; box-shadow: 0 0 40px rgba(243, 235, 191, 1); }
+
+/* textarea 박스 디자인 - 게시물 작성 */
 textarea.box-shadow { border: none; outline: none; box-shadow: 0 0 40px rgba(51, 51, 51, .1); }
 textarea.box-shadow: hover { border: none; outline: none; box-shadow: 0 0 40px rgba(243, 235, 191, 1); }
 textarea.box-shadow:active { border: none; outline: none; box-shadow: 0 0 40px rgba(243, 235, 191, 1); }
@@ -37,11 +42,17 @@ textarea.box-shadow:focus { border: none; outline: none;  box-shadow: 0 0 40px r
 textarea.box-size-height { height: 50vh; resize: none; }
 textarea.box-size-width { width: 50vh; resize: none; }
 
-/* select 박스 디자인 */
+/* select 박스 디자인 - 게시물 작성 */
 select.box-shadow { border: none; outline: none; box-shadow: 0 0 40px rgba(51, 51, 51, .1); }
 select.box-shadow: hover { border: none; outline: none; box-shadow: 0 0 40px rgba(243, 235, 191, 1); }
 select.box-shadow:active { border: none; outline: none; box-shadow: 0 0 40px rgba(243, 235, 191, 1); }
 select.box-shadow:focus { border: none; outline: none;  box-shadow: 0 0 40px rgba(243, 235, 191, 1); }
+
+/* select 박스 디자인 - 검색 */
+select.box-search { border: none; outline: none; color: grey; background: none; box-shadow: 0 0 40px rgba(51, 51, 51, .1);}
+select.box-search: hover { border: none; outline: none; box-shadow: 0 0 40px rgba(243, 235, 191, 1); }
+select.box-search:active { border: none; outline: none; box-shadow: 0 0 40px rgba(243, 235, 191, 1); }
+select.box-search:focus { border: none; outline: none;  box-shadow: 0 0 40px rgba(243, 235, 191, 1); }
 
 /* button 디자인 */
 button.no-border { border: none; outline: none; background: none;}

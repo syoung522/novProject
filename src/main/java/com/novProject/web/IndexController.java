@@ -52,7 +52,7 @@ public class IndexController {
     public String search(Model model,
                          @RequestParam("keyword_1") String keyword_1,
                          @RequestParam("keyword_2") String keyword_2,
-                         @PageableDefault(page = 0, size = 5, sort = "id", direction = Sort.Direction.DESC) Pageable pageable,
+                         @PageableDefault(page = 0, size = 1, sort = "id", direction = Sort.Direction.DESC) Pageable pageable,
                          @LoginUser SessionUser user){
         //로그인
         if(user != null){
@@ -60,16 +60,29 @@ public class IndexController {
         }
 
         //검색목록 + 페이징
-        Page<Posts> searchList = postsService.findByCategoryAndTitle(keyword_1, keyword_2, pageable);
-        model.addAttribute("searchList", searchList);
-        model.addAttribute("prev", pageable.previousOrFirst().getPageNumber()); //이전 페이지
-        model.addAttribute("next", pageable.next().getPageNumber()); //다음 페이지
+        if(keyword_1.equals("ALL")){
+            Page<Posts> searchList = postsService.findByTitleContaining(keyword_2, pageable);
+            model.addAttribute("searchList", searchList);
+            model.addAttribute("prev", pageable.previousOrFirst().getPageNumber()); //이전 페이지
+            model.addAttribute("next", pageable.next().getPageNumber()); //다음 페이지
 
-        model.addAttribute("hasNext", searchList.hasNext());
-        model.addAttribute("hasPrev", searchList.hasPrevious());
+            model.addAttribute("hasNext", searchList.hasNext());
+            model.addAttribute("hasPrev", searchList.hasPrevious());
 
-        model.addAttribute("keyword_1", keyword_1);
-        model.addAttribute("keyword_2", keyword_2);
+            model.addAttribute("keyword_1", keyword_1);
+            model.addAttribute("keyword_2", keyword_2);
+        } else {
+            Page<Posts> searchList = postsService.findByCategoryAndTitleContaining(keyword_1, keyword_2, pageable);
+            model.addAttribute("searchList", searchList);
+            model.addAttribute("prev", pageable.previousOrFirst().getPageNumber()); //이전 페이지
+            model.addAttribute("next", pageable.next().getPageNumber()); //다음 페이지
+
+            model.addAttribute("hasNext", searchList.hasNext());
+            model.addAttribute("hasPrev", searchList.hasPrevious());
+
+            model.addAttribute("keyword_1", keyword_1);
+            model.addAttribute("keyword_2", keyword_2);
+        }
 
         return "posts-search";
     }
