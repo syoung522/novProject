@@ -19,6 +19,7 @@ var main = {
             _this.save_cmt();
         });
 
+        // jQuery DatePicker
         $(document).ready(function(){
             $('#startDate').datepicker({
                 dateFormat: 'yy-mm-dd',
@@ -35,7 +36,7 @@ var main = {
             });
         });
 
-
+        // BootStrap SmartWizard
         $(document).ready(function(){
             $('#smartwizard').smartWizard({
                 selected: 0,
@@ -46,7 +47,7 @@ var main = {
             });
         });
 
-        //fullcalendar
+        // FullCalendar
         document.addEventListener('DOMContentLoaded', function() {
             var calendarEl = document.getElementById('calendar');
             var calendar = new FullCalendar.Calendar(calendarEl, {
