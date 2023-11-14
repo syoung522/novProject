@@ -131,4 +131,9 @@ public class IndexController {
         
         return "posts-view";
     }
+
+    @GetMapping("/group/save")
+    public String groupSave(){
+        return "group-save";
+    }
 }
