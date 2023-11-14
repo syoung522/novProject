@@ -44,6 +44,16 @@ var main = {
                 autoAdjustHeight:true,
                 transitionEffect:'fade',
                 showStepURLhash: false,
+                onLeaveStep: function(obj, context){
+                    if (context.toStep == context.steps.length) {
+                        // 마지막 단계에서는 다음 버튼을 숨김
+                        $(".sw-btn-next").hide();
+                    } else {
+                        // 마지막 단계가 아닌 경우 다음 버튼을 보여줌
+                        $(".sw-btn-next").show();
+                    }
+                    return true;
+                }
             });
         });
 
