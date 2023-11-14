@@ -9,65 +9,120 @@
         <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Smart Wizard modal</h5> <button type="button" class="close" data-dismiss="modal" aria-label="Close"> <span aria-hidden="true">&times;</span> </button>
+                    <h5 class="modal-title" id="exampleModalLabel">Create Your Group!</h5> <button type="button" class="close" data-dismiss="modal" aria-label="Close"> <span aria-hidden="true">&times;</span> </button>
                 </div>
                 <div class="modal-body">
                     <div id="smartwizard">
                         <ul>
-                            <li><a href="#step-1">Step 1<br /><small>Category</small></a></li>
-                            <li><a href="#step-2">Step 2<br /><small>Using Stack</small></a></li>
-                            <li><a href="#step-3">Step 3<br /><small>Duration</small></a></li>
-                            <li><a href="#step-4">Step 4<br /><small>Group Name</small></a></li>
-                            <li><a href="#step-5">Step 5<br /><small>Confirm Details</small></a></li>
+                            <li><a href="#step-1">Step 1<br><small>Category</small></a></li>
+                            <li><a href="#step-2">Step 2<br><small>Using Stack</small></a></li>
+                            <li><a href="#step-3">Step 3<br><small>Duration</small></a></li>
+                            <li><a href="#step-4">Step 4<br><small>Group Name</small></a></li>
+                            <li><a href="#step-5">Step 5<br><small>Confirm Details</small></a></li>
                         </ul>
                         <div class="mt-4">
                             <!-- 카테고리 -->
                             <div id="step-1">
-                                <div class="row mt-3">
-                                    <label>Category</label>
-                                    <div class="col-md-6"><input type="radio" name="category" value="study"> study</div>
-                                    <div class="col-md-6"><input type="radio" name="category" value="project"> project</div>
-                                </div>
+                                <div class="col-md-6"><label style="font-size:30px;">Category*</label></div>
+                                <hr>
+                                <br>
+                                <div class="col-md-6"><input type="radio" name="category" value="study"> study</div>
+                                <br>
+                                <div class="col-md-6"><input type="radio" name="category" value="project"> project</div>
+                            </div>
                             <!-- 스택 -->
                             <div id="step-2">
-                                <div class="row mt-3">
-                                    <label>Stack</label>
-                                    <div class="col-md-6"><input type="checkbox" name="stack" value="Java"> Java</div>
-                                    <div class="col-md-6"><input type="checkbox" name="stack" value="Nodejs"> Nodejs</div>
-                                    <div class="col-md-6"><input type="checkbox" name="stack" value="Spring"> Spring</div>
-                                    <div class="col-md-6"><input type="checkbox" name="stack" value="React"> React</div>
-                                    <div class="col-md-6"><input type="checkbox" name="stack" value="AWS"> AWS</div>
-                                    <div class="col-md-6"><input type="checkbox" name="stack" value="Git"> Git</div>
-                                    <div class="col-md-6"><input type="checkbox" name="stack" value="javaScript"> JavaScript</div>
-                                    <div class="col-md-6"><input type="checkbox" name="stack" value="Kotlin"> Kotlin</div>
-                                    <div class="col-md-6"><input type="checkbox" name="stack" value="Figma"> Figma</div>
-                                    <div class="col-md-6"><input type="checkbox" name="stack" value="Unity"> Unity</div>
-                                    <div class="col-md-6"><input type="checkbox" name="stack" value="Vue"> Vue</div>
-                                    <div class="col-md-6"><input type="checkbox" name="stack" value="TypeScript"> TypeScript</div>
-                                    <div class="col-md-6"><input type="checkbox" name="stack" value="MySQL"> MySQL</div>
-                                    <div class="col-md-6"><input type="checkbox" name="stack" value="Python"> Python</div>
-                                    <div class="col-md-6"><input type="checkbox" name="stack" value="Django"> Django</div>
-                                    <div class="col-md-6"><input type="checkbox" name="stack" value="MariaDB"> MariaDB</div>
+                                <div class="col-md-6">
+                                    <label style="font-size:30px;">Stack*</label>
+                                    <hr>
                                 </div>
+                                <div class="">
+                                    <label style="font-weight:bold;">Language :</label>
+                                </div>
+                                <div class="grid-container">
+                                    <div class="checkbox-item"><input type="checkbox" id="checkbox1" name="stack" value="React"> React</div>
+                                    <div class="checkbox-item"><input type="checkbox" id="checkbox1" name="stack" value="Vue"> Vue</div>
+                                    <div class="checkbox-item"><input type="checkbox" id="checkbox1" name="stack" value="Angular"> Angular</div>
+                                    <div class="checkbox-item"><input type="checkbox" id="checkbox1" name="stack" value="jQuery"> jQuery</div>
+
+                                    <div class="checkbox-item"><input type="checkbox" id="checkbox1" name="stack" value="Python"> Python</div>
+                                    <div class="checkbox-item"><input type="checkbox" id="checkbox1" name="stack" value="Kotlin"> Kotlin</div>
+                                    <div class="checkbox-item"><input type="checkbox" id="checkbox1" name="stack" value="Java"> Java</div>
+                                    <div class="checkbox-item"><input type="checkbox" id="checkbox1" name="stack" value="Ruby"> Ruby</div>
+
+                                    <div class="checkbox-item"><input type="checkbox" id="checkbox1" name="stack" value="PHP"> PHP</div>
+                                    <div class="checkbox-item"><input type="checkbox" id="checkbox1" name="stack" value="Nodejs"> Nodejs</div>
+                                    <div class="checkbox-item"><input type="checkbox" id="checkbox1" name="stack" value="C++"> C++</div>
+                                    <div class="checkbox-item"><input type="checkbox" id="checkbox1" name="stack" value="C#"> C#</div>
+                                    <div class="checkbox-item"><input type="checkbox" id="checkbox1" name="stack" value="C"> C</div>
+                                    <div class="checkbox-item"><input type="checkbox" id="checkbox1" name="stack" value="JavaScript"> JavaScript</div>
+                                    <div class="checkbox-item"><input type="checkbox" id="checkbox1" name="stack" value="TypeScript"> TypeScript</div>
+                                </div>
+
+                                <br>
+                                <input type="text" id="checkbox1" class="box-search" name="stack" placeholder="enter yourself"/>
+                                <br><br>
+
+                                <div class="">
+                                    <label style="font-weight:bold;">Framework :</label>
+                                </div>
+                                <div class="grid-container">
+                                    <div class="checkbox-item"><input type="checkbox" id="checkbox1" name="stack" value="Django"> Django</div>
+                                    <div class="checkbox-item"><input type="checkbox" id="checkbox1" name="stack" value="AppMaster"> AppMaster</div>
+                                    <div class="checkbox-item"><input type="checkbox" id="checkbox1" name="stack" value="ExpressJs"> ExpressJs</div>
+                                    <div class="checkbox-item"><input type="checkbox" id="checkbox1" name="stack" value="Flask"> Flask</div>
+
+                                    <div class="checkbox-item"><input type="checkbox" id="checkbox1" name="stack" value="Spring"> Spring</div>
+                                    <div class="checkbox-item"><input type="checkbox" id="checkbox1" name="stack" value="SpringBoot"> SpringBoot</div>
+                                    <div class="checkbox-item"><input type="checkbox" id="checkbox1" name="stack" value="Fiber"> Fiber</div>
+                                    <div class="checkbox-item"><input type="checkbox" id="checkbox1" name="stack" value="CakePHP"> CakePHP</div>
+                                </div>
+
+                                <br>
+                                <input type="text" id="checkbox1" class="box-search" name="stack" placeholder="enter yourself"/>
+                                <br><br>
+
+                                <div class="">
+                                    <label style="font-weight:bold;">Database :</label>
+                                </div>
+                                <div class="grid-container">
+                                    <div class="checkbox-item"><input type="checkbox" id="checkbox1" name="stack" value="MySQL"> MySQL</div>
+                                    <div class="checkbox-item"><input type="checkbox" id="checkbox1" name="stack" value="MariaDB"> MariaDB</div>
+                                    <div class="checkbox-item"><input type="checkbox" id="checkbox1" name="stack" value="Oracle"> Oracle</div>
+                                    <div class="checkbox-item"><input type="checkbox" id="checkbox1" name="stack" value="H2"> H2</div>
+                                </div>
+
+                                <br>
+                                <input type="text" id="checkbox1" class="box-search" name="stack" placeholder="enter yourself"/>
+                                <br><br>
+
+                                <div class="">
+                                    <label style="font-weight:bold;">Others :</label>
+                                </div>
+                                <div class="grid-container">
+                                    <div class="checkbox-item"><input type="checkbox" id="checkbox1" name="stack" value="Git"> Git</div>
+                                    <div class="checkbox-item"><input type="checkbox" id="checkbox1" name="stack" value="AWS"> AWS</div>
+                                    <div class="checkbox-item"><input type="checkbox" id="checkbox1" name="stack" value="Figma"> Figma</div>
+                                    <div class="checkbox-item"><input type="checkbox" id="checkbox1" name="stack" value="Unity"> Unity</div>
+                                </div>
+
+                                <br>
+                                <input type="text" id="checkbox1" class="box-search" name="stack" placeholder="enter yourself"/>
+                                <br>
                             </div>
                             <!-- 학습기간 -->
-                            <div id="step-3" class="">
-                                <div class="col-md-6"><label>Start Date</label></div>
+                            <div id="step-3">
+                                <div class="col-md-6"><label style="font-size:25px;">Start Date*</label></div>
                                 <div class="col-md-6"><input type="text" id="startDate" /></div>
-                                <div class="col-md-6"><label>End Date</label></div>
+                                <div class="col-md-6"><label style="font-size:25px;">End Date*</label></div>
                                 <div class="col-md-6"><input type="text" id="endDate" /></div>
-                                </div>
                             </div>
                             <!-- 그룹이름 -->
-                            <div id="step-4" class="">
-                                <div class="col-md-6">
-                                    <label>Group Name</label>
-                                    <input type="text" class="form-control" placeholder="ex)Spring Portfolio Project"required>
-                                </div>
-                                <div class="col-md-6">
-                                    <label>Group Leader</label>
-                                    <input type="text" class="form-control" value="" readonly>
-                                </div>
+                            <div id="step-4">
+                                <div class="col-md-6"><label style="font-size:30px;">Group Name*</label></div>
+                                <div class="col-md-6"><input type="text" class="form-control" placeholder="ex) SpringBoot Project" required></div>
+                                <div class="col-md-6"><label style="font-size:30px;">Group Leader</label></div>
+                                <div class="col-md-6"><input type="text" class="form-control" style="border:none; outline:none; background-color:none;" value="{{userName}}" readonly></div>
                             </div>
                         </div>
                     </div>

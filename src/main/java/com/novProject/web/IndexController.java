@@ -133,7 +133,8 @@ public class IndexController {
     }
 
     @GetMapping("/group/save")
-    public String groupSave(){
+    public String groupSave(Model model, @LoginUser SessionUser user){
+        model.addAttribute("userName", user.getName());
         return "group-save";
     }
 }

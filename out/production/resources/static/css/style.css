@@ -77,3 +77,10 @@ body{ background-color: #eee; }
 .form-control:focus {color: #495057;background-color: #fff;border-color: #80bdff;outline: 0;box-shadow: 0 0 0 0rem rgba(0,123,255,.25)}
 .btn-secondary:focus {box-shadow: 0 0 0 0rem rgba(108,117,125,.5)}
 .close:focus {box-shadow: 0 0 0 0rem rgba(108,117,125,.5)}.mt-200{margin-top:200px}
+.grid-container {
+        display: grid;
+        grid-template-columns: repeat(5, 1fr); /* 한 행에 5개의 열 */
+        gap: 10px; /* 각 열 간격 조절을 위한 옵션 */
+}
+
+.checkbox-item { width: 100%; /* 각 열의 폭을 100%로 설정 */}
