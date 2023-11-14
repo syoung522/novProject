@@ -69,6 +69,23 @@ create table comment (
     posts_id Long not null,
     user_id Long not null,
     primary key (comment_id)
+) engine=InnoDB;
+
+create table groups (
+    groups_id bigint not null auto_increment, 
+    created_date datetime,
+    modified_date datetime, 
+    groups_category varchar(500) not null, 
+    groups_duration varchar(255) not null, 
+    groups_leader varchar(500) not null, 
+    groups_name varchar(255) not null, 
+    primary key (groups_id)
+) engine=InnoDB;
+
+create table stack (
+    stack_id bigint not null auto_increment,
+    stack_name varchar(255) not null,
+    primary key (stack_id)
 ) engine=InnoDB;]]></console>
     </connection>
   </component>
@@ -76,9 +93,7 @@ create table comment (
     <last-used-providers />
   </component>
   <component name="DBNavigator.Project.DatabaseFileManager">
-    <open-files>
-      <object connection-id="8edb12e1-5396-4825-84ea-56daf491a01c" object-ref="consoles/soyoung2" />
-    </open-files>
+    <open-files />
   </component>
   <component name="DBNavigator.Project.ExecutionManager">
     <retain-sticky-names value="false" />
