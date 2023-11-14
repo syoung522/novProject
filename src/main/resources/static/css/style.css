@@ -71,3 +71,9 @@ table.posts-list td.createdDate { width: 120px; text-align: right; }
 
 /* posts-save 에서 placeholder 선택자 안 보이게 */
 select option[value=""][disabled] { display: none; }
+
+/* group-save 디자인 */
+body{ background-color: #eee; }
+.form-control:focus {color: #495057;background-color: #fff;border-color: #80bdff;outline: 0;box-shadow: 0 0 0 0rem rgba(0,123,255,.25)}
+.btn-secondary:focus {box-shadow: 0 0 0 0rem rgba(108,117,125,.5)}
+.close:focus {box-shadow: 0 0 0 0rem rgba(108,117,125,.5)}.mt-200{margin-top:200px}

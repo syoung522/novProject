@@ -19,6 +19,33 @@ var main = {
             _this.save_cmt();
         });
 
+        $(document).ready(function(){
+            $('#startDate').datepicker({
+                dateFormat: 'yy-mm-dd',
+                onSelect: function(selectedDate) {
+                    $('#endDate').datepicker('option', 'minDate', selectedDate);
+                }
+            });
+
+            $('#endDate').datepicker({
+                dateFormat: 'yy-mm-dd',
+                onSelect: function(selectedDate) {
+                    $('#startDate').datepicker('option', 'maxDate', selectedDate);
+                }
+            });
+        });
+
+
+        $(document).ready(function(){
+            $('#smartwizard').smartWizard({
+                selected: 0,
+                theme: 'arrows',
+                autoAdjustHeight:true,
+                transitionEffect:'fade',
+                showStepURLhash: false,
+            });
+        });
+
         //fullcalendar
         document.addEventListener('DOMContentLoaded', function() {
             var calendarEl = document.getElementById('calendar');
@@ -114,8 +141,7 @@ var main = {
                 alert('Failed to save your comment.'+JSON.stringify(error));
             });
         }
-    },
-
+    }
 };
 
 main.init();
