@@ -13,17 +13,17 @@ a.set-color:visited { color: grey; font-weight: bold; }
 /* a.set-color:hover { text-decoration: none; color: rgba(233, 235, 153, 1); filter: drop-shadow(0 0 2px rgba(243, 235, 191, 1)); font-weight: bold; } */ /* 밝은 노랑 */
 a.set-color:hover { text-decoration: none; color: rgba(202, 179, 33, 1); filter: drop-shadow(0 0 2px rgba(233, 210, 63, 1)); font-weight: bold; } /* 진한 노랑 */
 
-/* a 태그 디자인 - 로고 */
+/* a 태그 디자인 - 로고 (로고색) */
 a.set-color-logo:link { color: black; font-weight: bold; }
 a.set-color-logo:visited { color: black; font-weight: bold; }
 a.set-color-logo:hover { text-decoration: none; color: rgba(217, 232, 130, 0.94); filter: drop-shadow(0 0 2px rgba(231, 241, 177, 0.94)); font-weight: bold;}
 
-/* a 태그 디자인 - 페이징 아이콘 */
+/* a 태그 디자인 - 페이징 아이콘 (옐로) */
 a.set-color-paging:link { color: black; font-weight: bold; }
 a.set-color-paging:visited { color: black; font-weight: bold; }
 a.set-color-paging:hover { text-decoration: none; color: rgba(202, 179, 33, 1); filter: drop-shadow(0 0 2px rgba(233, 210, 63, 1)); font-weight: bold; }
 
-/* a 태그 디자인 - 그룹 생성 아이콘 */
+/* a 태그 디자인 - 그룹 생성 아이콘 (그린) */
 a.set-color-group:link { color: grey; font-weight: bold; }
 a.set-color-group:visited { color: grey; font-weight: bold; }
 a.set-color-group:hover { text-decoration: none; color: #5CB85C; filter: drop-shadow(0 0 2px #B1DFBB); font-weight: bold; }
@@ -60,11 +60,18 @@ select.box-search: hover { border: none; outline: none; box-shadow: 0 0 40px rgb
 select.box-search:active { border: none; outline: none; box-shadow: 0 0 40px rgba(243, 235, 191, 1); }
 select.box-search:focus { border: none; outline: none;  box-shadow: 0 0 40px rgba(243, 235, 191, 1); }
 
-/* button 디자인 */
+/* button 디자인 - 윤곽없음 */
 button.no-border { border: none; outline: none; background: none;}
+
+/* button 디자인 - 옐로 */
 button.set-color { color: grey; font-weight: bold; }
 button.set-color:hover { color: rgba(217, 232, 130, 0.94); filter: drop-shadow(0 0 2px rgba(243, 235, 191, 1)); font-weight: bold; }
-button.set-color:focus { color: rgba(217, 232, 130, 0.94); filter: drop-shadow(0 0 2px rgba(243, 235, 191, 1)); font-weight: bold; }
+
+/* button 디자인 - 그린 */
+button.set-color-group { color: grey; font-weight: bold; }
+button.set-color-group :hover { text-decoration: none; color: #5CB85C; filter: drop-shadow(0 0 2px #B1DFBB); font-weight: bold; }
+button.set-color-group :focus { text-decoration: none; color: #5CB85C; filter: drop-shadow(0 0 2px #B1DFBB); font-weight: bold; }
+
 
 /* 메인화면 post-list 테이블 디자인 */
 table.posts-list td { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
@@ -90,3 +97,12 @@ body{ background-color: #eee; }
 }
 
 .checkbox-item { width: 100%; /* 각 열의 폭을 100%로 설정 */}
+
+/* 정중앙 정렬 */
+.set-middle-wrapper {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   min-height: 100dvh;
+ }
+.set-middle-content { padding: 3rem;}

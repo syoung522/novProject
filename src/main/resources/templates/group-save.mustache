@@ -4,7 +4,11 @@
 
 <!--그룹생성-->
 <div class="container">
-    <div class="row d-flex justify-content-center mt-200"> <button type="button" class="set-color" data-toggle="modal" data-target="#exampleModal"> Create Group </button> </div> <!-- Modal -->
+    <div class="row d-flex justify-content-center mt-200">
+        <button type="button" class="set-color-group no-border" data-toggle="modal" data-target="#exampleModal">
+            <h1><i class="bi bi-arrow-right-circle"></i> GO CREATE</h1>
+        </button>
+    </div> <!-- Modal -->
     <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
             <div class="modal-content">
@@ -12,7 +16,7 @@
                     <h5 class="modal-title" id="exampleModalLabel">Create Your Group!</h5> <button type="button" class="close" data-dismiss="modal" aria-label="Close"> <span aria-hidden="true">&times;</span> </button>
                 </div>
                 <div class="modal-body">
-                    <div id="smartwizard">
+                    <form id="smartwizard">
                         <ul>
                             <li><a href="#step-1">Step 1<br><small>Category</small></a></li>
                             <li><a href="#step-2">Step 2<br><small>Using Stack</small></a></li>
@@ -120,12 +124,19 @@
                             <!-- 그룹이름 -->
                             <div id="step-4">
                                 <div class="col-md-6"><label style="font-size:30px;">Group Name*</label></div>
-                                <div class="col-md-6"><input type="text" class="form-control" placeholder="ex) SpringBoot Project" required></div>
+                                <div class="col-md-6"><input type="text" id="name" class="form-control" placeholder="ex) SpringBoot Project" required></div>
                                 <div class="col-md-6"><label style="font-size:30px;">Group Leader</label></div>
-                                <div class="col-md-6"><input type="text" class="form-control" style="border:none; outline:none;" value="{{userName}}" readonly></div>
+                                <div class="col-md-6"><input type="text" id="leader" class="form-control" style="border:none; outline:none;" value="{{userName}}" readonly></div>
+                            </div>
+                            <!-- 그룹이름 -->
+                            <div id="step-5">
+                                <div class="col">
+                                    <button type="button" id="btn-save-group" class="set-color-group no-border">
+                                    <h1>click to save <i class="bi bi-check2-circle"></i></h1>
+                                </div>
                             </div>
                         </div>
-                    </div>
+                    </form>
                 </div>
             </div>
         </div>
