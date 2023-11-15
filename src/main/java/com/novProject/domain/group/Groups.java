@@ -28,18 +28,22 @@ public class Groups extends BaseTimeEntity {
     @Column(name = "groups_category", nullable = false, length = 500)
     private String category;
 
-    @Column(name = "groups_duration", nullable = false)
-    private String duration;
+    @Column(name = "groups_startDate", nullable = false)
+    private String startDate;
+
+    @Column(name = "groups_endDate", nullable = false)
+    private String endDate;
 
     @OneToMany
     private List<Stack> stack;
 
     @Builder //lombok
-    public Groups(String name, String leader, String category, String duration, List<Stack> stack){
+    public Groups(String name, String leader, String category, String startDate, String endDate, List<Stack> stack){
         this.name = name;
         this.leader = leader;
         this.category = category;
-        this.duration = duration;
+        this.startDate = startDate;
+        this.endDate = endDate;
         this.stack = stack;
     }
 }
