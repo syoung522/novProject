@@ -16,15 +16,23 @@ public class GroupsSaveRequestDto {
     private String name;
     private String leader;
     private String stack;
+    private Long headcount;
+    private Long headcountStatus;
+    private String applyStatus;
+    private String applicants;
 
     @Builder
-    public GroupsSaveRequestDto(String category, String startDate, String endDate, String name, String leader, String stack){
+    public GroupsSaveRequestDto(String category, String startDate, String endDate, String name, String leader, String stack, Long headcount, Long headcountStatus, String applyStatus, String applicants){
         this.category = category;
         this.startDate =startDate;
         this.endDate = endDate;
         this.name = name;
         this.leader = leader;
         this.stack = stack;
+        this.headcount = headcount;
+        this.headcountStatus = headcountStatus;
+        this.applyStatus = applyStatus;
+        this.applicants = applicants;
     }
 
     public Groups toEntity(){
@@ -35,6 +43,10 @@ public class GroupsSaveRequestDto {
                 .name(name)
                 .leader(leader)
                 .stack(stack)
+                .headcount(headcount)
+                .headcountStatus(headcountStatus)
+                .applyStatus(applyStatus)
+                .applicants(applicants)
                 .build();
     }
 }

@@ -105,8 +105,8 @@
 <div class="container">
     <div class="row">
         {{#groups}}
-            <div class="col-md-3">
-                <p>{{category}}</p>
+            <div class="col-md-4">
+                <p>  {{category}}</p>
                 <div class="card">
                     <div class="card-header">
                         <span style="font-weight:bold;">{{name}}</span>
@@ -115,7 +115,11 @@
                     <div class="card-body">
                         <p class="card-title"><i class="bi bi-calendar3"></i> [{{startDate}}] - [{{endDate}}]</p>
                         <p class="card-text"><i class="bi bi-pen"></i> {{stack}}</p>
-                        <a href="/group/view" class="btn btn-primary">More</a>
+                        <p class="card-text"><i class="bi bi-people"></i> {{headcountStatus}}/{{headcount}}</p>
+                        {{^applyStatus}}
+                            <p class="card-text"><i class="bi bi-heart-fill"></i> Recruiting...</p>
+                        {{/applyStatus}}
+                        <a href="/group/view/{{id}}" class="btn btn-secondary">More</a>
                     </div>
                 </div>
             </div>

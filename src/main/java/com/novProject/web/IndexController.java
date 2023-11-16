@@ -9,6 +9,7 @@ import com.novProject.domain.posts.Posts;
 import com.novProject.service.groups.GroupsService;
 import com.novProject.service.posts.PostsService;
 import com.novProject.web.dto.CommentListResponseDto;
+import com.novProject.web.dto.GroupsResponseDto;
 import com.novProject.web.dto.GroupsSaveRequestDto;
 import com.novProject.web.dto.PostsResponseDto;
 import lombok.RequiredArgsConstructor;
@@ -148,9 +149,20 @@ public class IndexController {
         return "group-save";
     }
 
-    @GetMapping("/group/view")
-    public String groupView(Model model, @LoginUser SessionUser user){
-        model.addAttribute("userName", user.getName());
+    @GetMapping("/group/view/{id}")
+    public String groupView(Model model,
+                            @PathVariable Long id,
+                            @LoginUser SessionUser user){
+        //사용자
+        if(user != null){
+            model.addAttribute("userName", user.getName());
+        }
+
+        //게시글
+        GroupsResponseDto dto = groupsService.findById(id);
+        model.addAttribute("group", dto);
+
         return "group-view";
     }
+
 }

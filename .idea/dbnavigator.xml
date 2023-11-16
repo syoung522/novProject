@@ -76,11 +76,14 @@ create table groups (
     created_date datetime,
     modified_date datetime, 
     groups_category varchar(500) not null, 
-    groups_startDate varchar(255) not null, 
-    groups_endDate varchar(255) not null, 
+    groups_start_date varchar(255) not null, 
+    groups_end_date varchar(255) not null, 
     groups_leader varchar(500) not null, 
     groups_name varchar(255) not null, 
     groups_stack varchar(500),
+    groups_headcount bigint,
+    groups_headcount_status bigint,
+    groups_apply_status varchar(255),
     primary key (groups_id)
 ) engine=InnoDB;
 
@@ -90,7 +93,6 @@ create table groups (
 --    primary key (stack_id)
 --) engine=InnoDB;
 
-select * from groups;
 drop table groups;]]></console>
     </connection>
   </component>

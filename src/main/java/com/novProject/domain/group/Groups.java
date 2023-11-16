@@ -24,26 +24,38 @@ public class Groups extends BaseTimeEntity {
     @Column(name = "groups_leader", nullable = false, length = 500)
     private String leader;
 
-    @Column(name = "groups_category", nullable = false, length = 500)
+    @Column(name = "groups_category")
     private String category;
 
-    @Column(name = "groups_start_date", nullable = false)
+    @Column(name = "groups_start_date")
     private String startDate;
 
-    @Column(name = "groups_end_date", nullable = false)
+    @Column(name = "groups_end_date")
     private String endDate;
 
-    @Column(name = "groups_stack", nullable = false)
+    @Column(name = "groups_stack")
     private String stack;
+    @Column(name = "groups_headcount")
+    private Long headcount;
+    @Column(name = "groups_headcount_status")
+    private Long headcountStatus;
+    @Column(name = "groups_apply_status")
+    private String applyStatus;
+    @Column(name = "groups_applicants")
+    private String applicants;
 
 
     @Builder //lombok
-    public Groups(String name, String leader, String category, String startDate, String endDate, String stack){
+    public Groups(String name, String leader, String category, String startDate, String endDate, String stack, Long headcount, Long headcountStatus, String applyStatus, String applicants){
         this.name = name;
         this.leader = leader;
         this.category = category;
         this.startDate = startDate;
         this.endDate = endDate;
         this.stack = stack;
+        this.headcount = headcount;
+        this.headcountStatus = headcountStatus;
+        this.applyStatus = applyStatus;
+        this.applicants = applicants;
     }
 }

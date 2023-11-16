@@ -3,7 +3,9 @@ package com.novProject.service.groups;
 import com.novProject.domain.group.Groups;
 import com.novProject.domain.group.GroupsRepository;
 import com.novProject.domain.posts.Posts;
+import com.novProject.web.dto.GroupsResponseDto;
 import com.novProject.web.dto.GroupsSaveRequestDto;
+import com.novProject.web.dto.PostsResponseDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -26,5 +28,12 @@ public class GroupsService {
     @Transactional(readOnly = true)
     public List<Groups> findAllDesc() {
         return groupsRepository.findAllDesc();
+    }
+
+    @Transactional
+    public GroupsResponseDto findById(Long id){
+        Groups entity = groupsRepository.findById(id)
+                .orElseThrow(() -> new IllegalArgumentException("해당 게시글이 없습니다. id=" + id));
+        return new GroupsResponseDto(entity);
     }
 }
