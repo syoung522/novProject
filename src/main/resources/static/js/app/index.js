@@ -19,6 +19,10 @@ var main = {
             _this.save_cmt();
         });
 
+        $('#btn-save-group').on('click', function () {
+            _this.save_group();
+        });
+
         // jQuery DatePicker
         $(document).ready(function(){
             $('#startDate').datepicker({
@@ -152,7 +156,36 @@ var main = {
                 alert('Failed to save your comment.'+JSON.stringify(error));
             });
         }
+    },
+
+    save_group : function () {
+
+
+        var data = {
+                category: $('input[name="category"]:checked').val(),
+                stack: $('#stack').val(),
+                startDate: $('#startDate').val(),
+                endDate: $('#endDate').val(),
+                name: $('#name').val(),
+                leader: $('#leader').val(),
+                }
+
+
+        // 서버로 데이터 전송
+        $.ajax({
+            type: 'POST',
+            url: '/api/v1/group',
+            dataType: 'json',
+            contentType:'application/json; charset=utf-8',
+            data: JSON.stringify(data)
+        }).done(function() {
+            alert('Saved successfully.');
+            window.location.href = '/';
+        }).fail(function (error) {
+            alert('Access denied.'+JSON.stringify(error));
+        });
     }
+
 };
 
 main.init();

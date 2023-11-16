@@ -4,9 +4,12 @@ package com.novProject.web;
 
 import com.novProject.config.auth.LoginUser;
 import com.novProject.config.auth.dto.SessionUser;
+import com.novProject.domain.group.Groups;
 import com.novProject.domain.posts.Posts;
+import com.novProject.service.groups.GroupsService;
 import com.novProject.service.posts.PostsService;
 import com.novProject.web.dto.CommentListResponseDto;
+import com.novProject.web.dto.GroupsSaveRequestDto;
 import com.novProject.web.dto.PostsResponseDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,18 +31,25 @@ public class IndexController {
     @Autowired
     private final PostsService postsService;
 
+    @Autowired
+    private final GroupsService groupsService;
+
     @GetMapping("/")
     public String index(Model model,
                         @PageableDefault(page = 0, size = 5, sort = "id", direction = Sort.Direction.DESC) Pageable pageable,
                         @LoginUser SessionUser user) {
         //게시글 목록 + 페이징
-        Page<Posts> list = postsService.findAllDesc(pageable);
-        model.addAttribute("posts", list);
+        Page<Posts> postsList = postsService.findAllDesc(pageable);
+        model.addAttribute("posts", postsList);
         model.addAttribute("prev", pageable.previousOrFirst().getPageNumber()); //이전 페이지
         model.addAttribute("next", pageable.next().getPageNumber()); //다음 페이지
 
-        model.addAttribute("hasNext", list.hasNext());
-        model.addAttribute("hasPrev", list.hasPrevious());
+        model.addAttribute("hasNext", postsList.hasNext());
+        model.addAttribute("hasPrev", postsList.hasPrevious());
+
+        //그룹 목록
+        List<Groups> groupsList = groupsService.findAllDesc();
+        model.addAttribute("groups", groupsList);
 
         //로그인
         if(user != null){
@@ -136,5 +146,11 @@ public class IndexController {
     public String groupSave(Model model, @LoginUser SessionUser user){
         model.addAttribute("userName", user.getName());
         return "group-save";
+    }
+
+    @GetMapping("/group/view")
+    public String groupView(Model model, @LoginUser SessionUser user){
+        model.addAttribute("userName", user.getName());
+        return "group-view";
     }
 }

@@ -1,7 +1,6 @@
 package com.novProject.domain.group;
 
 import com.novProject.domain.BaseTimeEntity;
-import com.novProject.domain.stack.Stack;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -34,11 +33,12 @@ public class Groups extends BaseTimeEntity {
     @Column(name = "groups_endDate", nullable = false)
     private String endDate;
 
-    @OneToMany
-    private List<Stack> stack;
+    @Column(name = "groups_stack", nullable = false)
+    private String stack;
+
 
     @Builder //lombok
-    public Groups(String name, String leader, String category, String startDate, String endDate, List<Stack> stack){
+    public Groups(String name, String leader, String category, String startDate, String endDate, String stack){
         this.name = name;
         this.leader = leader;
         this.category = category;
