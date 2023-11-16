@@ -27,10 +27,10 @@ public class Groups extends BaseTimeEntity {
     @Column(name = "groups_category", nullable = false, length = 500)
     private String category;
 
-    @Column(name = "groups_startDate", nullable = false)
+    @Column(name = "groups_start_date", nullable = false)
     private String startDate;
 
-    @Column(name = "groups_endDate", nullable = false)
+    @Column(name = "groups_end_date", nullable = false)
     private String endDate;
 
     @Column(name = "groups_stack", nullable = false)
