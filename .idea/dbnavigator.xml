@@ -90,7 +90,8 @@ create table groups (
 --    primary key (stack_id)
 --) engine=InnoDB;
 
-select * from groups;]]></console>
+select * from groups;
+drop table groups;]]></console>
     </connection>
   </component>
   <component name="DBNavigator.Project.DatabaseEditorStateManager">
