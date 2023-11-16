@@ -17,4 +17,9 @@ public class GroupsApiController {
     public Long save(@RequestBody GroupsSaveRequestDto requestDto){
         return groupsService.save(requestDto);
     }
+
+    @PostMapping("/api/v1/group/apply")
+    public Long apply(@RequestBody GroupsSaveRequestDto requestDto){
+        return groupsService.save(requestDto);
+    }
 }

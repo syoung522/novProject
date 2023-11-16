@@ -23,6 +23,11 @@ var main = {
             _this.save_group();
         });
 
+        $('#btn-apply').on('click', function () {
+            _this.apply();
+        });
+
+
         // jQuery DatePicker
         $(document).ready(function(){
             $('#startDate').datepicker({
@@ -160,7 +165,6 @@ var main = {
 
     save_group : function () {
 
-
         var data = {
                 category: $('input[name="category"]:checked').val(),
                 stack: $('#stack').val(),
@@ -168,6 +172,8 @@ var main = {
                 endDate: $('#endDate').val(),
                 name: $('#name').val(),
                 leader: $('#leader').val(),
+                headcount: $('#headcount').val(),
+                headcountStatus: +$('#headcountStatus').val()
                 }
 
 
@@ -180,6 +186,24 @@ var main = {
             data: JSON.stringify(data)
         }).done(function() {
             alert('Saved successfully.');
+            window.location.href = '/';
+        }).fail(function (error) {
+            alert('Access denied.'+JSON.stringify(error));
+        });
+    },
+
+    apply : function () {
+        var data = {
+            applicants: $("userName").val()
+        }
+    $.ajax({
+            type: 'POST',
+            url: '/api/v1/group.apply',
+            dataType: 'json',
+            contentType:'application/json; charset=utf-8',
+            data: JSON.stringify(data)
+        }).done(function() {
+            alert('Applied.');
             window.location.href = '/';
         }).fail(function (error) {
             alert('Access denied.'+JSON.stringify(error));
