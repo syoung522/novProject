@@ -1,4 +1,4 @@
-# Finding Developer Study Group Platform
+# Developer Study Group Matching Platform
 
 ## Project Description
 This platform helps developers with the same interests to do group activities together.
