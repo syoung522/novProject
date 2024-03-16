@@ -3,7 +3,7 @@
 ## Project Description
 This platform helps developers with the same interests to do group activities together.
 
-**[click here]**(https://youtu.be/-M7Qzp3zmz0?feature=shared) to see how it works.
+[click here](https://youtu.be/-M7Qzp3zmz0?feature=shared) to see how it works.
 
 ## How to use
 1. **Sign in** with google account.
